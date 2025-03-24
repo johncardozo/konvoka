@@ -1,0 +1,1547 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}konvoka{% endblock %}</title>
+        <meta name="description" content="Page Description">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+        <!-- Call App Mode on ios devices -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <!-- Remove Tap Highlight on Windows Phone IE -->
+        <meta name="msapplication-tap-highlight" content="no">
+        <!-- Vendor css -->
+        <link rel="stylesheet" media="screen, print" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" media="screen, print" href="{% static 'css/waves.css' %}">
+        <!-- Base css -->
+        <link rel="stylesheet" media="screen, print" href="{% static 'css/smartapp.css' %}">
+        <link rel="stylesheet" media="screen, print" href="{% static 'css/sa-icons' %}.css">
+        <!-- Page specific CSS -->
+        {% comment %} <link rel="stylesheet" media="screen, print" href="{% static 'css/blank.css' %}"> {% endcomment %}
+    </head>
+    <body class="content-has-right">
+        <script>
+            //hint: place this right after 'body' tag for instantaneous loading
+            'use strict';
+            var htmlRoot = document.getElementsByTagName('HTML')[0],
+                //save states
+                savePanelStateEnabled = true,
+                //mobile operator on
+                mobileOperator = function()
+                {
+                    // Check user agent
+                    const userAgent = navigator.userAgent.toLowerCase();
+                    const isMobileUserAgent = /iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(userAgent);
+                    // Check for touch support
+                    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                    // Check screen size (optional)
+                    const isSmallScreen = window.innerWidth <= 992; // Adjust the breakpoint as needed
+                    // Return true if any of the conditions are met
+                    return isMobileUserAgent || isTouchDevice || isSmallScreen;
+                },
+                //filter
+                filterClass = function(t, e)
+                {
+                    return String(t).split(/[^\w-]+/).filter(function(t)
+                    {
+                        return e.test(t)
+                    }).join(' ')
+                },
+                //load
+                loadSettings = function()
+                {
+                    var t = localStorage.getItem('layoutSettings') || '',
+                        e = t ? JSON.parse(t) :
+                        {};
+                    // Load theme setting
+                    var savedTheme = e.theme || 'light';
+                    htmlRoot.setAttribute('data-bs-theme', savedTheme);
+                    return Object.assign(
+                    {
+                        htmlRoot: '',
+                        theme: savedTheme
+                    }, e)
+                },
+                //save
+                saveSettings = function()
+                {
+                    layoutSettings.htmlRoot = filterClass(htmlRoot.className, /^(set)-/i);
+                    layoutSettings.theme = htmlRoot.getAttribute('data-bs-theme') || 'light';
+                    localStorage.setItem("layoutSettings", JSON.stringify(layoutSettings));
+                    savingIndicator();
+                },
+                //reset
+                resetSettings = function()
+                {
+                    localStorage.setItem("layoutSettings", "");
+                },
+                //get page id
+                getPageIdentifier = function()
+                {
+                    return window.location.pathname.split('/').pop() || 'index.html';
+                },
+                //save panel state
+                savePanelState = function()
+                {
+                    if (!savePanelStateEnabled) return;
+                    var state = [];
+                    var columns = document.querySelectorAll('.main-content > .row > [class^="col-"]');
+                    columns.forEach(function(column, columnIndex)
+                    {
+                        var panels = column.querySelectorAll('.panel');
+                        panels.forEach(function(panel, position)
+                        {
+                            var panelHeader = panel.querySelector('.panel-hdr');
+                            // Save panel classes excluding 'panel' and 'panel-fullscreen'
+                            var panelClasses = panel.className.split(' ').filter(function(cls)
+                            {
+                                return cls !== 'panel' && cls !== 'panel-fullscreen';
+                            }).join(' ');
+                            // Save header classes excluding 'panel-hdr'
+                            var headerClasses = panelHeader ? panelHeader.className.split(' ').filter(function(cls)
+                            {
+                                return cls !== 'panel-hdr';
+                            }).join(' ') : '';
+                            state.push(
+                            {
+                                id: panel.id,
+                                column: columnIndex,
+                                position: position, // Save position within column
+                                classes: panelClasses,
+                                headerClasses: headerClasses
+                            });
+                        });
+                    });
+                    var pageId = getPageIdentifier();
+                    var allStates = JSON.parse(localStorage.getItem('allPanelStates') || '{}');
+                    allStates[pageId] = state;
+                    localStorage.setItem('allPanelStates', JSON.stringify(allStates));
+                    savingIndicator();
+                },
+                loadPanelState = function()
+                {
+                    var pageId = getPageIdentifier();
+                    var allStates = JSON.parse(localStorage.getItem('allPanelStates') || '{}');
+                    var savedState = allStates[pageId];
+                    if (!savedState) return;
+                    // Use same selector as save function
+                    var columns = Array.from(document.querySelectorAll('.main-content > .row > [class^="col-"]'));
+                    // Store all existing panels in a map before removing them
+                    var panelMap = {};
+                    columns.forEach(function(column)
+                    {
+                        var existingPanels = Array.from(column.querySelectorAll('.panel'));
+                        existingPanels.forEach(function(panel)
+                        {
+                            panelMap[panel.id] = panel;
+                            panel.remove();
+                        });
+                    });
+                    // Sort state by column and position
+                    savedState.sort(function(a, b)
+                    {
+                        if (a.column === b.column)
+                        {
+                            return a.position - b.position;
+                        }
+                        return a.column - b.column;
+                    });
+                    // Reinsert panels in correct order
+                    savedState.forEach(function(item)
+                    {
+                        var panel = panelMap[item.id];
+                        if (panel && columns[item.column])
+                        {
+                            // Update panel classes
+                            panel.className = 'panel ' + (item.classes || '');
+                            // Update header classes
+                            var panelHeader = panel.querySelector('.panel-hdr');
+                            if (panelHeader && item.headerClasses)
+                            {
+                                panelHeader.className = 'panel-hdr ' + item.headerClasses;
+                            }
+                            // Append to correct column
+                            columns[item.column].appendChild(panel);
+                        }
+                    });
+                },
+                //reset panel state
+                resetPanelState = function()
+                {
+                    var pageId = getPageIdentifier();
+                    var allStates = JSON.parse(localStorage.getItem('allPanelStates') || '{}');
+                    delete allStates[pageId];
+                    localStorage.setItem('allPanelStates', JSON.stringify(allStates));
+                    //refresh page
+                    window.location.reload();
+                },
+                savingIndicator = function()
+                {
+                    // Create or get the indicator element
+                    let indicator = document.getElementById('saving-indicator');
+                    if (!indicator)
+                    {
+                        indicator = document.createElement('div');
+                        indicator.id = 'saving-indicator';
+                        document.body.appendChild(indicator);
+                    }
+                    // Show saving animation
+                    //indicator.textContent = '';
+                    indicator.className = 'saving-indicator spinner-border show';
+                    // After a brief delay, show success and hide
+                    setTimeout(() =>
+                    {
+                        //indicator.textContent = '';
+                        indicator.className = 'saving-indicator spinner-border show success';
+                        setTimeout(() =>
+                        {
+                            indicator.className = 'saving-indicator spinner-border success';
+                        }, 500);
+                    }, 300);
+                },
+                //load page layout settings
+                layoutSettings = loadSettings();
+            layoutSettings.htmlRoot && (htmlRoot.className = layoutSettings.htmlRoot);
+            //load panel settings is triggered just before <script> tag    
+        </script>
+        <div class="app-wrap">
+            <header class="app-header">
+                <!-- Collapse icon -->
+                <div class="d-flex flex-grow-1 me-auto align-items-center">
+                    <!-- App logo -->
+                    <div class="app-logo flex-shrink-0" data-prefix="v0.1" data-action="playsound" data-soundpath="media/sound/" data-soundfile="sawhisp.mp3">
+                        <!-- <img src="img/logo.svg" alt="logo"> -->
+                        <!-- please check docs on how to update this logo different dimensions -->
+                        <svg class="custom-logo">
+                            <use href="{% static 'img/app-logo.svg' %}#custom-logo"></use>
+                        </svg>
+                        <div class="logo-backdrop">
+                            <div class="blobs">
+                                <svg viewbox="0 0 1200 1200">
+                                    <g class="blob blob-1">
+                                        <path />
+                                    </g>
+                                    <g class="blob blob-2">
+                                        <path />
+                                    </g>
+                                    <g class="blob blob-3">
+                                        <path />
+                                    </g>
+                                    <g class="blob blob-4">
+                                        <path />
+                                    </g>
+                                    <g class="blob blob-1 alt">
+                                        <path />
+                                    </g>
+                                    <g class="blob blob-2 alt">
+                                        <path />
+                                    </g>
+                                    <g class="blob blob-3 alt">
+                                        <path />
+                                    </g>
+                                    <g class="blob blob-4 alt">
+                                        <path />
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mobile menu -->
+                    <div class="mobile-menu-icon me-2 d-flex d-sm-flex d-md-flex d-lg-none" data-action="toggle-swap" data-toggleclass="app-mobile-menu-open">
+                        <svg class="sa-icon">
+                            <use href="{% static 'img/sprite.svg' %}#menu"></use>
+                        </svg>
+                    </div>
+                    <!-- Collapse icon -->
+                    <div class="collapse-icon me-3 d-none d-lg-inline-flex d-xl-inline-flex d-xxl-inline-flex" data-action="toggle" data-class="set-nav-minified">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 8">
+                            <polygon fill="#878787" points="4.5,1 3.8,0.2 0,4 3.8,7.8 4.5,7 1.5,4" />
+                        </svg>
+                    </div>
+                    <div class="app-search">
+                        <input type="text" class="form-control" placeholder="Buscar...">
+                    </div>
+                </div>
+                <!-- Settings -->
+                <a href="javascript:void(0);" class="btn btn-system hidden-mobile" data-action="toggle-swap" data-toggleclass="open" data-target="aside.js-drawer-settings">
+                    <svg class="sa-icon sa-icon-2x">
+                        <use href="{% static 'img/sprite.svg' %}#settings"></use>
+                    </svg>
+                </a>
+                <!-- Theme modes -->
+                <a href="javascript:void(0);" class="btn btn-system" data-action="toggle-theme">
+                    <svg class="sa-icon sa-icon-2x">
+                        <use href="{% static 'img/sprite.svg' %}#circle"></use>
+                    </svg>
+                </a>
+                <!-- Sidebar -->
+                <a href="javascript:void(0);" class="btn btn-system d-none d-sm-block d-sm-none d-md-none d-lg-block" data-action="toggle-swap" data-toggleclass="open" data-target="aside.js-app-drawer">
+                    <svg class="sa-icon sa-icon-2x">
+                        <use href="{% static 'img/sprite.svg' %}#box"></use>
+                    </svg>
+                </a>
+                <!-- Notifications -->
+                <a href="javascript:void(0);" class="btn btn-system dropdown-toggle no-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                    <svg class="sa-icon sa-icon-2x">
+                        <use href="{% static 'img/sprite.svg' %}#bell"></use>
+                    </svg>
+                </a>
+                <!-- Notifications dropdown -->
+                <div class="dropdown-menu dropdown-menu-animated dropdown-xl dropdown-menu-end p-0">
+                    <div class="notification-header rounded-top mb-2">
+                        <h4 class="m-0"> 11 New <small class="mb-0 opacity-80">User Notifications</small>
+                        </h4>
+                    </div>
+                    <ul class="nav nav-tabs nav-tabs-clean" role="tablist">
+                        <li class="nav-item d-none">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#tab-default" role="tab" aria-selected="true">Hidden</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-4 fs-md fw-500" data-bs-toggle="tab" href="#tab-messages" role="tab" aria-selected="false">Messages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-4 fs-md fw-500" data-bs-toggle="tab" href="#tab-feeds" role="tab" aria-selected="false">Feeds</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-4 fs-md fw-500" data-bs-toggle="tab" href="#tab-events" role="tab" aria-selected="false">Events</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content tab-notification">
+                        <!--Security message-->
+                        <div class="tab-pane fade show active" id="tab-default" role="tabpanel">
+                            <div class="d-flex h-100">
+                                <div class="px-4 d-flex flex-column align-items-center justify-content-center">
+                                    <svg class="sa-icon sa-icon-5x sa-icon-primary">
+                                        <use href="{% static 'img/sprite.svg' %}#arrow-up-circle"></use>
+                                    </svg>
+                                    <span class="text-center fw-300" style="font-size: 1.25rem;"> Select a tab above </span>
+                                    <div class="mb-0 py-3 text-center fs-md fw-300 text-muted"> This blank page helps protect your privacy. To change this default message, <a href="#">update your settings</a>. </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Messages -->
+                        <div class="tab-pane fade" id="tab-messages" role="tabpanel">
+                            <div class="custom-scroll h-100">
+                                <ul class="notification">
+                                    <li class="unread alert alert-dismissable">
+                                        <div class="d-flex align-items-center">
+                                            <span class="status me-2">
+                                                <span class="profile-image rounded-circle d-inline-block" style="background-image:url('{% static 'img/avatar-c.png' %}')"></span>
+                                            </span>
+                                            <span class="d-flex flex-column flex-1 ms-1">
+                                                <!-- <span class="name">Melissa Ayre <span class="badge bg-primary fw-n position-absolute top-0 end-0 mt-1">INBOX</span></span> -->
+                                                <span class="name">Melissa Ayre</span>
+                                                <span class="msg-a fs-sm">Re: New security codes</span>
+                                                <span class="msg-b fs-xs">Hello again and thanks for being part...</span>
+                                                <span class="fs-nano text-muted mt-1">56 seconds ago</span>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </li>
+                                    <li class="unread alert alert-dismissable">
+                                        <div class="d-flex align-items-center">
+                                            <span class="status me-2">
+                                                <span class="profile-image rounded-circle d-inline-block" style="background-image:url('{% static 'img/avatar-a.png' %}')"></span>
+                                            </span>
+                                            <span class="d-flex flex-column flex-1 ms-1">
+                                                <span class="name">Adison Lee</span>
+                                                <span class="msg-a fs-sm">Msed quia non numquam eius</span>
+                                                <span class="fs-nano text-muted mt-1">2 minutes ago</span>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </li>
+                                    <li class="alert alert-dismissable">
+                                        <div class="d-flex align-items-center">
+                                            <span class="status status-success me-2">
+                                                <span class="profile-image rounded-circle d-inline-block" style="background-image:url('{% static 'img/avatar-b.png' %}')"></span>
+                                            </span>
+                                            <span class="d-flex flex-column flex-1 ms-1">
+                                                <span class="name">Oliver Kopyuv</span>
+                                                <span class="msg-a fs-sm">Msed quia non numquam eius</span>
+                                                <span class="fs-nano text-muted mt-1">3 days ago</span>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </li>
+                                    <li class="alert alert-dismissable">
+                                        <div class="d-flex align-items-center">
+                                            <span class="status status-warning me-2">
+                                                <span class="profile-image rounded-circle d-inline-block" style="background-image:url('{% static 'img/avatar-e.png' %}')"></span>
+                                            </span>
+                                            <span class="d-flex flex-column flex-1 ms-1">
+                                                <span class="name">Dr. John Cook PhD</span>
+                                                <span class="msg-a fs-sm">Msed quia non numquam eius</span>
+                                                <span class="fs-nano text-muted mt-1">2 weeks ago</span>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </li>
+                                    <li class="alert alert-dismissable">
+                                        <div class="d-flex align-items-center">
+                                            <span class="status status-success me-2">
+                                                <span class="profile-image rounded-circle d-inline-block" style="background-image:url('{% static 'img/avatar-h.png' %}')"></span>
+                                            </span>
+                                            <span class="d-flex flex-column flex-1 ms-1">
+                                                <span class="name">Sarah McBrook</span>
+                                                <span class="msg-a fs-sm">Msed quia non numquam eius</span>
+                                                <span class="fs-nano text-muted mt-1">3 weeks ago</span>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </li>
+                                    <li class="alert alert-dismissable">
+                                        <div class="d-flex align-items-center">
+                                            <span class="status status-success me-2">
+                                                <span class="profile-image rounded-circle d-inline-block" style="background-image:url('{% static 'img/avatar-m.png' %}')"></span>
+                                            </span>
+                                            <span class="d-flex flex-column flex-1 ms-1">
+                                                <span class="name">Anothony Bezyeth</span>
+                                                <span class="msg-a fs-sm">Msed quia non numquam eius</span>
+                                                <span class="fs-nano text-muted mt-1">one month ago</span>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </li>
+                                    <li class="alert alert-dismissable">
+                                        <div class="d-flex align-items-center">
+                                            <span class="status status-danger me-2">
+                                                <span class="profile-image rounded-circle d-inline-block" style="background-image:url('{% static 'img/avatar-j.png' %}')"></span>
+                                            </span>
+                                            <span class="d-flex flex-column flex-1 ms-1">
+                                                <span class="name">Lisa Hatchensen</span>
+                                                <span class="msg-a fs-sm">Msed quia non numquam eius</span>
+                                                <span class="fs-nano text-muted mt-1">one year ago</span>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </li>
+                                </ul>
+                                <div class="notification-empty-msg">
+                                    <svg class="sa-icon sa-icon-5x sa-icon-primary">
+                                        <use href="{% static 'img/sprite.svg' %}#coffee"></use>
+                                    </svg>
+                                    <span> No new messages </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Feeds -->
+                        <div class="tab-pane fade" id="tab-feeds" role="tabpanel">
+                            <div class="custom-scroll h-100">
+                                <ul class="notification">
+                                    <li class="unread alert alert-dismissable">
+                                        <div class="d-flex align-items-center show-child-on-hover">
+                                            <span class="d-flex flex-column flex-1">
+                                                <span class="name d-flex align-items-center">Administrator <span class="badge bg-success fw-n ms-1">UPDATE</span></span>
+                                                <span class="msg-a fs-sm"> System updated to version <strong>4.6.0</strong> <a href="docs_buildnotes.html">(patch notes)</a>
+                                                </span>
+                                                <span class="fs-nano text-muted mt-1">5 mins ago</span>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </li>
+                                    <li class="alert alert-dismissable">
+                                        <div class="d-flex align-items-center show-child-on-hover">
+                                            <div class="d-flex flex-column flex-1">
+                                                <span class="name"> Adison Lee <span class="fw-300 d-inline">replied to your video <a href="#" class="fw-400"> Cancer Drug</a> </span>
+                                                </span>
+                                                <span class="msg-a fs-sm mt-2">Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day...</span>
+                                                <span class="fs-nano text-muted mt-1">10 minutes ago</span>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </li>
+                                    <li class="alert alert-dismissable">
+                                        <div class="d-flex align-items-center show-child-on-hover">
+                                            <!--<img src="img/demo/avatars/avatar-m.png" data-src="img/demo/avatars/avatar-k.png" class="profile-image rounded-circle" alt="k" />-->
+                                            <div class="d-flex flex-column flex-1">
+                                                <span class="name"> Troy Norman'<span class="fw-300">s new connections</span>
+                                                </span>
+                                                <div class="fs-sm d-flex align-items-center mt-2">
+                                                    <span class="profile-image-md ms-1 rounded-circle d-inline-block" style="background-image:url('img/avatar-a.png'); background-size: cover;"></span>
+                                                    <span class="profile-image-md ms-1 rounded-circle d-inline-block" style="background-image:url('img/avatar-b.png'); background-size: cover;"></span>
+                                                    <span class="profile-image-md ms-1 rounded-circle d-inline-block" style="background-image:url('img/avatar-c.png'); background-size: cover;"></span>
+                                                    <span class="profile-image-md ms-1 rounded-circle d-inline-block" style="background-image:url('img/avatar-e.png'); background-size: cover;"></span>
+                                                    <div data-hasmore="+3" class="rounded-circle profile-image-md ms-1">
+                                                        <span class="profile-image-md ms-1 rounded-circle d-inline-block" style="background-image:url('img/avatar-h.png'); background-size: cover;"></span>
+                                                    </div>
+                                                </div>
+                                                <span class="fs-nano text-muted mt-1">55 minutes ago</span>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </li>
+                                    <li class="alert alert-dismissable">
+                                        <div class="d-flex align-items-center show-child-on-hover">
+                                            <!--<img src="img/demo/avatars/avatar-m.png" data-src="img/demo/avatars/avatar-e.png" class="profile-image-sm rounded-circle align-self-start mt-1" alt="k" />-->
+                                            <div class="d-flex flex-column flex-1">
+                                                <span class="name">Dr John Cook <span class="fw-300">sent a <span class="text-danger">new signal</span></span></span>
+                                                <span class="msg-a fs-sm mt-2">Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</span>
+                                                <span class="fs-nano text-muted mt-1">10 minutes ago</span>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </li>
+                                    <li class="alert alert-dismissable">
+                                        <div class="d-flex align-items-center show-child-on-hover">
+                                            <div class="d-flex flex-column flex-1">
+                                                <span class="name">Lab Images <span class="fw-300">were updated!</span></span>
+                                                <div class="fs-sm d-flex align-items-center mt-1">
+                                                    <a href="#" class="ms-1 mt-1" title="Cell A-0012">
+                                                        <span class="d-block img-share" style="background-image:url('img/pic-7.png'); background-size: cover;"></span>
+                                                    </a>
+                                                    <a href="#" class="ms-1 mt-1" title="Patient A-473 saliva">
+                                                        <span class="d-block img-share" style="background-image:url('img/pic-8.png'); background-size: cover;"></span>
+                                                    </a>
+                                                    <a href="#" class="ms-1 mt-1" title="Patient A-473 blood cells">
+                                                        <span class="d-block img-share" style="background-image:url('img/pic-11.png'); background-size: cover;"></span>
+                                                    </a>
+                                                    <a href="#" class="ms-1 mt-1" title="Patient A-473 Membrane O.C">
+                                                        <span class="d-block img-share" style="background-image:url('img/pic-12.png'); background-size: cover;"></span>
+                                                    </a>
+                                                </div>
+                                                <span class="fs-nano text-muted mt-1">55 minutes ago</span>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </li>
+                                    <li class="alert alert-dismissable">
+                                        <div class="d-flex align-items-center show-child-on-hover">
+                                            <div class="d-flex flex-column flex-1 w-100">
+                                                <div class="name mb-2"> Lisa Lamar<span class="fw-300"> updated project</span>
+                                                </div>
+                                                <div class="row fs-b fw-300">
+                                                    <div class="col text-start"> Progress </div>
+                                                    <div class="col text-end fw-500"> 45% </div>
+                                                </div>
+                                                <div class="progress progress-sm d-flex mt-1">
+                                                    <span class="progress-bar bg-primary progress-bar-striped" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></span>
+                                                </div>
+                                                <span class="fs-nano text-muted mt-1">2 hrs ago</span>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </li>
+                                </ul>
+                                <div class="notification-empty-msg">
+                                    <svg class="sa-icon sa-icon-5x sa-icon-primary">
+                                        <use href="{% static 'img/sprite.svg' %}#smile"></use>
+                                    </svg>
+                                    <span> You are all set! </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Events -->
+                        <div class="tab-pane fade" id="tab-events" role="tabpanel">
+                            <div class="d-flex flex-column h-100">
+                                <div class="h-auto">
+                                    <table class="table table-bordered table-calendar m-0 w-100 h-100 border-0">
+                                        <tr>
+                                            <th colspan="7" class="pt-3 pb-2 pl-3 pr-3 text-center">
+                                                <div class="js-get-date h5 mb-2">[your date here]</div>
+                                            </th>
+                                        </tr>
+                                        <tr class="text-center">
+                                            <th>Sun</th>
+                                            <th>Mon</th>
+                                            <th>Tue</th>
+                                            <th>Wed</th>
+                                            <th>Thu</th>
+                                            <th>Fri</th>
+                                            <th>Sat</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted bg-faded">30</td>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td><i class="fal fa-birthday-cake mt-1 ml-1 position-absolute pos-left pos-top text-primary"></i> 6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>8</td>
+                                            <td>9</td>
+                                            <td class="bg-primary-300 pattern-0">10</td>
+                                            <td>11</td>
+                                            <td>12</td>
+                                            <td>13</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14</td>
+                                            <td>15</td>
+                                            <td>16</td>
+                                            <td>17</td>
+                                            <td>18</td>
+                                            <td>19</td>
+                                            <td>20</td>
+                                        </tr>
+                                        <tr>
+                                            <td>21</td>
+                                            <td>22</td>
+                                            <td>23</td>
+                                            <td>24</td>
+                                            <td>25</td>
+                                            <td>26</td>
+                                            <td>27</td>
+                                        </tr>
+                                        <tr>
+                                            <td>28</td>
+                                            <td>29</td>
+                                            <td>30</td>
+                                            <td>31</td>
+                                            <td class="text-muted bg-faded">1</td>
+                                            <td class="text-muted bg-faded">2</td>
+                                            <td class="text-muted bg-faded">3</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="flex-1 custom-scroll">
+                                    <div class="p-2">
+                                        <div class="d-flex align-items-center text-left mb-3">
+                                            <div class="width-5 fw-300 text-primary l-h-n ms-1 align-self-start fs-xxl"> 15 </div>
+                                            <div class="flex-1">
+                                                <div class="d-flex flex-column">
+                                                    <span class="l-h-n fs-md fw-500 opacity-70"> October 2020 </span>
+                                                    <span class="l-h-n fs-nano fw-400 text-secondary"> Friday </span>
+                                                </div>
+                                                <div class="mt-3">
+                                                    <p>
+                                                        <strong>2:30PM</strong> - Doctor's appointment
+                                                    </p>
+                                                    <p>
+                                                        <strong>3:30PM</strong> - Report overview
+                                                    </p>
+                                                    <p>
+                                                        <strong>4:30PM</strong> - Meeting with Donnah V.
+                                                    </p>
+                                                    <p>
+                                                        <strong>5:30PM</strong> - Late Lunch
+                                                    </p>
+                                                    <p>
+                                                        <strong>6:30PM</strong> - Report Compression
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-2 px-3 d-block rounded-bottom text-end border-light border-bottom-0 border-end-0 border-start-0">
+                        <a href="#" class="fs-xs fw-500 ms-auto">view all notifications</a>
+                    </div>
+                </div>
+                <!-- Profile -->
+                <a href="#" data-bs-toggle="dropdown" title="drlantern@gotbootstrap.com" class="btn-system d-flex flex-shrink-0 align-items-center justify-content-center ml-2">
+                    <img src="{% static 'img/avatar-admin.png' %}" class="profile-image profile-image-md rounded-circle" alt="Tatiana Zona">
+                </a>
+                <!-- Profile dropdown -->
+                <div class="dropdown-menu dropdown-menu-animated">
+                    <div class="notification-header rounded-top mb-2">
+                        <div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
+                            <span class="status status-success d-inline-block me-2">
+                                <img src="{% static 'img/avatar-admin.png' %}" class="profile-image rounded-circle" alt="...">
+                            </span>
+                            <div class="info-card-text">
+                                <div class="fs-lg text-truncate text-truncate-lg">Tatiana Zona</div>
+                                <span class="text-truncate text-truncate-md opacity-80 fs-sm">tatiana@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider m-0"></div>
+                    <a href="#" class="dropdown-item" data-action="toggle-swap" data-toggleclass="open" data-target="aside.js-drawer-settings">
+                        <span data-i18n="drpdwn.settings">Configuración</span>
+                    </a>
+                    <a href="#" class="dropdown-item d-block d-sm-block d-md-block d-lg-none" data-action="toggle-swap" data-toggleclass="open" data-target="aside.js-app-drawer">
+                        <span data-i18n="drpdwn.settings">Page Extension</span>
+                    </a>
+                    <a href="#" class="dropdown-item d-flex justify-content-between align-items-center" data-action="app-fullscreen">
+                        <span data-i18n="drpdwn.fullscreen">Pantalla completa</span>
+                        <b class="text-muted fs-nano px-2 rounded font-monospace align-self-center border">F11</b>
+                    </a>
+                    <div class="dropdown-divider m-0"></div>
+                    <a class="dropdown-item py-3 fw-500 d-flex justify-content-between" href="login.html">
+                        <span class="text-danger" data-i18n="drpdwn.page-logout">Salir</span>
+                        <span class="d-block text-truncate text-truncate-sm">@tatianazona</span>
+                    </a>
+                </div>
+            </header>
+            <aside class="app-sidebar d-flex flex-column">
+                <div class="app-logo flex-shrink-0" data-prefix="v0.1" data-action="playsound" data-soundpath="media/sound/" data-soundfile="sawhisp.mp3">
+                    <!-- <img src="img/logo.svg" alt="logo"> -->
+                    <!-- please check docs on how to update this logo different dimensions -->
+                    <svg class="custom-logo">
+                        <use href="{% static 'img/app-logo.svg' %}#custom-logo"></use>
+                    </svg>
+                    <div class="logo-backdrop">
+                        <div class="blobs">
+                            <svg viewbox="0 0 1200 1200">
+                                <g class="blob blob-1">
+                                    <path />
+                                </g>
+                                <g class="blob blob-2">
+                                    <path />
+                                </g>
+                                <g class="blob blob-3">
+                                    <path />
+                                </g>
+                                <g class="blob blob-4">
+                                    <path />
+                                </g>
+                                <g class="blob blob-1 alt">
+                                    <path />
+                                </g>
+                                <g class="blob blob-2 alt">
+                                    <path />
+                                </g>
+                                <g class="blob blob-3 alt">
+                                    <path />
+                                </g>
+                                <g class="blob blob-4 alt">
+                                    <path />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-menu-filter-container px-4">
+                    <input type="text" class="form-control" id="searchInput" placeholder="Filter" autocomplete="off">
+                    <div class="js-filter-message nav-filter-msg badge bg-secondary btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Clear filter"></div>
+                </div>
+                <nav id="js-primary-nav" class="primary-nav flex-grow-1 custom-scroll">
+                    <ul id="js-nav-menu" class="nav-menu">
+                        {% block nav_menu %}
+                        <li class="nav-title"><span>Config</span></li>
+                        <li class="active">
+                            <a href="appintel.html">
+                                <svg class="sa-icon">
+                                    <use href="{% static 'img/sprite.svg' %}#cpu"></use>
+                                </svg>
+                                <span class="nav-link-text">Application Intel</span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="#" title="Documentation" data-filter-tags="">
+                                <svg class="sa-icon">
+                                    <use href="{% static 'img/sprite.svg' %}#book-open"></use>
+                                </svg>
+                                <span class="nav-link-text" data-i18n="">Documentation</span>
+                            </a>
+                            <ul>
+                                <li class="">
+                                    <a href="buildnotes.html">
+                                        <span class="nav-link-text" data-i18n="">Build notes</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="gettingstarted.html">
+                                        <span class="nav-link-text" data-i18n="">Getting Started</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0);" title="Core Plugins" data-filter-tags="">
+                                        <span class="nav-link-text" data-i18n="">Core Plugins</span>
+                                    </a>
+                                    <ul>
+                                        <li class="">
+                                            <a href="smartappjs.html">
+                                                <span class="nav-link-text" data-i18n="">App DOM</span>
+                                                <span class="badge bg-danger badge-end">P</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="smartnavigationjs.html">
+                                                <span class="nav-link-text" data-i18n="">Smart Navigation</span>
+                                                <span class="badge bg-danger badge-end">P</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="smartfilterjs.html">
+                                                <span class="nav-link-text" data-i18n="">Smart Filter</span>
+                                                <span class="badge bg-warning text-dark badge-end">D</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="sortablejs.html">
+                                                <span class="nav-link-text" data-i18n="">Sortable</span>
+                                                <span class="badge bg-warning text-dark badge-end">D</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="bootstrapbundlejs.html">
+                                                <span class="nav-link-text" data-i18n="">Bootstrap Bundle</span>
+                                                <span class="badge bg-warning text-dark badge-end">D</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="smartslimscrolljs.html">
+                                                <span class="nav-link-text" data-i18n="">Smart Slim Scroll</span>
+                                                <span class="badge bg-success badge-end">O</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="wavesjs.html">
+                                                <span class="nav-link-text" data-i18n="">Waves</span>
+                                                <span class="badge bg-success badge-end">O</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0);" title="Addon Plugins" data-filter-tags="">
+                                        <span class="nav-link-text" data-i18n="">Addon Plugins</span>
+                                    </a>
+                                    <ul>
+                                        <li class="">
+                                            <a href="smarttablesjs.html">
+                                                <span class="nav-link-text" data-i18n="">smartTables.js</span>
+                                                <span class="badge bg-primary badge-end">A</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-title"><span>Design</span></li>
+                        <li class="nav-item ">
+                            <a href="#" title="UI Components" data-filter-tags="">
+                                <svg class="sa-icon">
+                                    <use href="{% static 'img/sprite.svg' %}#layers"></use>
+                                </svg>
+                                <span class="nav-link-text" data-i18n="">UI Components</span>
+                            </a>
+                            <ul>
+                                <li class="">
+                                    <a href="javascript:void(0);" title="Core elements" data-filter-tags="">
+                                        <span class="nav-link-text" data-i18n="">Core elements</span>
+                                    </a>
+                                    <ul>
+                                        <li class="">
+                                            <a href="alerts.html">
+                                                <span class="nav-link-text" data-i18n="">Alerts</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="accordions.html">
+                                                <span class="nav-link-text" data-i18n="">Accordions</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="badges.html">
+                                                <span class="nav-link-text" data-i18n="">Badges</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="buttons.html">
+                                                <span class="nav-link-text" data-i18n="">Buttons</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="buttongroup.html">
+                                                <span class="nav-link-text" data-i18n="">Button Group</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="cards.html">
+                                                <span class="nav-link-text" data-i18n="">Cards</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0);" title="Menu & Links" data-filter-tags="">
+                                        <span class="nav-link-text" data-i18n="">Menu & Links</span>
+                                    </a>
+                                    <ul>
+                                        <li class="">
+                                            <a href="breadcrumbs.html">
+                                                <span class="nav-link-text" data-i18n="">Breadcrumbs</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="dropdowns.html">
+                                                <span class="nav-link-text" data-i18n="">Dropdowns</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="navbars.html">
+                                                <span class="nav-link-text" data-i18n="">Navbars</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="pagination.html">
+                                                <span class="nav-link-text" data-i18n="">Pagination</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="scrollspy.html">
+                                                <span class="nav-link-text" data-i18n="">ScrollSpy</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0);" title="Interactive Features" data-filter-tags="">
+                                        <span class="nav-link-text" data-i18n="">Interactive Features</span>
+                                    </a>
+                                    <ul>
+                                        <li class="">
+                                            <a href="collapse.html">
+                                                <span class="nav-link-text" data-i18n="">Collapse</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="modal.html">
+                                                <span class="nav-link-text" data-i18n="">Modal</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="tabsandpills.html">
+                                                <span class="nav-link-text" data-i18n="">Tabs & Pills</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="tooltips.html">
+                                                <span class="nav-link-text" data-i18n="">Tooltips</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="popovers.html">
+                                                <span class="nav-link-text" data-i18n="">Popovers</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="toasts.html">
+                                                <span class="nav-link-text" data-i18n="">Toasts</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0);" title="Visual Feedback" data-filter-tags="">
+                                        <span class="nav-link-text" data-i18n="">Visual Feedback</span>
+                                    </a>
+                                    <ul>
+                                        <li class="">
+                                            <a href="progressbars.html">
+                                                <span class="nav-link-text" data-i18n="">Progress Bars</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="spinners.html">
+                                                <span class="nav-link-text" data-i18n="">Spinners</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="carousels.html">
+                                                <span class="nav-link-text" data-i18n="">Carousels</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0);" title="Advanced Features" data-filter-tags="">
+                                        <span class="nav-link-text" data-i18n="">Advanced Features</span>
+                                    </a>
+                                    <ul>
+                                        <li class="">
+                                            <a href="panels.html">
+                                                <span class="nav-link-text" data-i18n="">Panels</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="listfilter.html">
+                                                <span class="nav-link-text" data-i18n="">List Filter</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="sidepanels.html">
+                                                <span class="nav-link-text" data-i18n="">Side Panels</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="#" title="System Utilities" data-filter-tags="">
+                                <svg class="sa-icon">
+                                    <use href="{% static 'img/sprite.svg' %}#package"></use>
+                                </svg>
+                                <span class="nav-link-text" data-i18n="">System Utilities</span>
+                            </a>
+                            <ul>
+                                <li class="">
+                                    <a href="javascript:void(0);" title="Layout Adjustments" data-filter-tags="">
+                                        <span class="nav-link-text" data-i18n="">Layout Adjustments</span>
+                                    </a>
+                                    <ul>
+                                        <li class="">
+                                            <a href="borders.html">
+                                                <span class="nav-link-text" data-i18n="">Borders</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="displayproperty.html">
+                                                <span class="nav-link-text" data-i18n="">Display Property</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="responsivegrid.html">
+                                                <span class="nav-link-text" data-i18n="">Responsive Grid</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="position.html">
+                                                <span class="nav-link-text" data-i18n="">Position</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0);" title="Design Essentials" data-filter-tags="">
+                                        <span class="nav-link-text" data-i18n="">Design Essentials</span>
+                                    </a>
+                                    <ul>
+                                        <li class="">
+                                            <a href="colorpalette.html">
+                                                <span class="nav-link-text" data-i18n="">Color Palette</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="typography.html">
+                                                <span class="nav-link-text" data-i18n="">Typography</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="sizing.html">
+                                                <span class="nav-link-text" data-i18n="">Sizing</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="spacing.html">
+                                                <span class="nav-link-text" data-i18n="">Spacing</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="figmafile.html">
+                                                <span class="nav-link-text" data-i18n="">Figma File</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0);" title="Interactive Features" data-filter-tags="">
+                                        <span class="nav-link-text" data-i18n="">Interactive Features</span>
+                                    </a>
+                                    <ul>
+                                        <li class="">
+                                            <a href="flexbox.html">
+                                                <span class="nav-link-text" data-i18n="">Flexbox</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="helpers.html">
+                                                <span class="nav-link-text" data-i18n="">Helpers</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="visibilitygenerator.html">
+                                                <span class="nav-link-text" data-i18n="">Visibility Generator</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="#" title="Iconography" data-filter-tags="">
+                                <svg class="sa-icon">
+                                    <use href="{% static 'img/sprite.svg' %}#heart"></use>
+                                </svg>
+                                <span class="nav-link-text" data-i18n="">Iconography</span>
+                            </a>
+                            <ul>
+                                <li class="">
+                                    <a href="systemicons.html">
+                                        <span class="nav-link-text" data-i18n="">System Icons</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0);" title="Font Icons" data-filter-tags="">
+                                        <span class="nav-link-text" data-i18n="">Font Icons</span>
+                                    </a>
+                                    <ul>
+                                        <li class="">
+                                            <a href="fontawesome.html">
+                                                <span class="nav-link-text" data-i18n="">FontAwesome 5.3</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="smartadminicons.html">
+                                                <span class="nav-link-text" data-i18n="">SmartAdmin Icons 1.0</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="stackgenerator.html">
+                                        <span class="nav-link-text" data-i18n="">Stack Generator</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="#" title="Tables" data-filter-tags="">
+                                <svg class="sa-icon">
+                                    <use href="{% static 'img/sprite.svg' %}#table"></use>
+                                </svg>
+                                <span class="nav-link-text" data-i18n="">Tables</span>
+                            </a>
+                            <ul>
+                                <li class="">
+                                    <a href="basictables.html">
+                                        <span class="nav-link-text" data-i18n="">Basic Tables</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="tablesstylegenerator.html">
+                                        <span class="nav-link-text" data-i18n="">Tables Style Generator</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="#" title="Smart Tables" data-filter-tags="">
+                                <svg class="sa-icon">
+                                    <use href="{% static 'img/sprite.svg' %}#database"></use>
+                                </svg>
+                                <span class="nav-link-text" data-i18n="">Smart Tables</span>
+                                <span class="badge bg-primary badge-end">1.0.0</span>
+                            </a>
+                            <ul>
+                                <li class="">
+                                    <a href="smarttablesminimal.html">
+                                        <span class="nav-link-text" data-i18n="">Minimal Settings</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="smarttablesresponsive.html">
+                                        <span class="nav-link-text" data-i18n="">Responsive Settings</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="smarttablesimportexportdata.html">
+                                        <span class="nav-link-text" data-i18n="">Import & Export Data</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="smarttablesjsonsource.html">
+                                        <span class="nav-link-text" data-i18n="">JSON Data Source</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="smarttablesfuzzysearch.html">
+                                        <span class="nav-link-text" data-i18n="">Fuzzy Search</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="#" title="Forms" data-filter-tags="">
+                                <svg class="sa-icon">
+                                    <use href="{% static 'img/sprite.svg' %}#edit"></use>
+                                </svg>
+                                <span class="nav-link-text" data-i18n="">Forms</span>
+                            </a>
+                            <ul>
+                                <li class="">
+                                    <a href="inputs.html">
+                                        <span class="nav-link-text" data-i18n="">Inputs</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="checkboxandradio.html">
+                                        <span class="nav-link-text" data-i18n="">Checkbox & Radio</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="groups.html">
+                                        <span class="nav-link-text" data-i18n="">Groups</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="validation.html">
+                                        <span class="nav-link-text" data-i18n="">Validation</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-title"><span>Layouts</span></li>
+                        <li class="nav-item ">
+                            <a href="#" title="Access Control" data-filter-tags="">
+                                <svg class="sa-icon">
+                                    <use href="{% static 'img/sprite.svg' %}#slash"></use>
+                                </svg>
+                                <span class="nav-link-text" data-i18n="">Access Control</span>
+                            </a>
+                            <ul>
+                                <li class="">
+                                    <a href="allauthpages.html">
+                                        <span class="nav-link-text" data-i18n="">Authentication Pages</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="emaildesign.html">
+                                        <span class="nav-link-text" data-i18n="">Email Templates</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="errorpages.html">
+                                        <span class="nav-link-text" data-i18n="">Error Pages</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="profile.html">
+                                        <span class="nav-link-text" data-i18n="">User Profile</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="#" title="Communication" data-filter-tags="">
+                                <svg class="sa-icon">
+                                    <use href="{% static 'img/sprite.svg' %}#message-square"></use>
+                                </svg>
+                                <span class="nav-link-text" data-i18n="">Communication</span>
+                            </a>
+                            <ul>
+                                <li class="">
+                                    <a href="messenger.html">
+                                        <span class="nav-link-text" data-i18n="">Messenger & Chat</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="systemmail.html">
+                                        <span class="nav-link-text" data-i18n="">System Mail</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="usercontact.html">
+                                        <span class="nav-link-text" data-i18n="">User Contact</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>                        
+                        {% endblock %}
+                    </ul>
+                    <div class="no-results-msg pt-3 info-container">
+                        <h6 class="mb-1"> No se encontraron coincidencias.</h6>
+                        <p class="fs-sm">Intente buscando con otras palabras.</p>
+                        <div class="d-flex align-items-center gap-1 fs-xs fw-500 font-style-italic">
+                            <kbd class="kbd-key">
+                                <svg width="15" height="15" aria-label="Escape key" role="img">
+                                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2">
+                                        <path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path>
+                                    </g>
+                                </svg>
+                            </kbd> para reiniciar
+                        </div>
+                    </div>
+                </nav>
+                <div class="nav-footer">
+                    <div class="d-flex align-items-center justify-content-center gap-2">
+                        <i class="sa sa-plus"></i>Me
+                    </div>
+                </div>
+            </aside>
+            <main class="app-body">
+                <div class="app-content">
+                    <div class="content-wrapper">
+                        <nav class="app-breadcrumb" aria-label="breadcrumb">
+                            <ol class="breadcrumb ms-0">
+                                {% block breadcrumb %}
+                                <li class="breadcrumb-item">Inicio</li>
+                                <li class="breadcrumb-item active" aria-current="page">Blank</li>
+                                {% endblock %}
+                            </ol>
+                        </nav>
+                        <h1 class="subheader-title"> {% block page_header_text %}This is the page header...{% endblock %} <small> {% block page_subheader_text %}This is the page sub header...{% endblock %}</small>
+                        </h1>
+                        <div class="main-content">
+                            {% block main_content %}{% endblock %}
+                        </div>
+                    </div>
+                    {% block content-wrapper-right %}{% endblock %}
+                </div>
+                <footer class="app-footer">
+                    {% include 'footer.html' %}
+                </footer>
+            </main>
+            <!--we use js-* extension to indicate a hook for a script reference-->
+            <aside class="app-drawer js-app-drawer">
+                <div class="app-drawer-header"> Page extension <a href="javascript:void(0);" class="btn btn-system ms-auto" data-action="toggle-swap" data-toggleclass="open" data-target="aside.js-app-drawer">
+                        <svg class="sa-icon sa-icon-2x">
+                            <use href="{% static 'img/sprite.svg' %}#x"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="custom-scrollbar h-100">
+                    <div class="info-container">
+                        <p>The application drawer serves as an extension of the main application, providing a convenient location to display important information and store user selections or preferences.</p>
+                        <p>This includes items such as shopping cart contents, notifications, layout options, and application settings. </p>
+                        <p>By utilizing the application drawer, you can effectively hide and show this information to users as needed, streamlining the user experience and improving the organization of your application.</p>
+                    </div>
+                </div>
+            </aside>
+            <div class="backdrop" data-action="toggle-swap" data-toggleclass="open" data-target="aside.js-app-drawer"></div>
+            <aside class="app-drawer js-drawer-settings">
+                <div class="app-drawer-header"> App Settings <a href="javascript:void(0);" class="btn btn-system ms-auto" data-action="toggle-swap" data-toggleclass="open" data-target="aside.js-drawer-settings">
+                        <svg class="sa-icon sa-icon-2x">
+                            <use href="{% static 'img/sprite.svg' %}#x"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="custom-scrollbar h-100">
+                    <div class="info-container"> Unlock limitless design potential with 16+ layout combinations and extensive customization options—tailor your dashboard to fit your exact needs. <button class="btn btn-sm btn-outline-secondary ms-1" data-action="playsound" data-soundpath="media/sound/" data-soundfile="settings-voice.mp3">
+                            <svg class="sa-icon">
+                                <use href="{% static 'img/sprite.svg' %}#volume-2"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="d-flex justify-content-spaced w-100 app-fob-showcase-text" data-prefix="Preview">
+                        <div class="app-fob app-fob-lg app-fob-showcase">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="mod-status primary-mod" data-prefix="Primary Settings">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="actionHeaderFixed" data-action="toggle" data-class="set-header-fixed">
+                            <label class="form-check-label" for="actionHeaderFixed"> Header position fixed </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="actionNavFull" data-action="toggle" data-class="set-nav-full" data-codependence="set-nav-collapsed">
+                            <label class="form-check-label" for="actionNavFull"> Navigation full height </label>
+                        </div>
+                    </div>
+                    <div class="mod-status" data-prefix="Addon Settings">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="actionNavFixed" data-action="toggle" data-class="set-nav-fixed">
+                            <label class="form-check-label" for="actionNavFixed"> Navigation position fixed </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="actionNavCollapsed" data-action="toggle" data-class="set-nav-collapsed" data-dependency="set-nav-full">
+                            <label class="form-check-label" for="actionNavCollapsed"> Navigation collapsed </label>
+                        </div>
+                    </div>
+                    <div class="mod-status" data-prefix="Misc Settings">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="actionNavMinified" data-action="toggle" data-class="set-nav-minified">
+                            <label class="form-check-label" for="actionNavMinified"> Navigation Minified </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="darkNavigation" data-action="toggle" data-class="set-nav-dark">
+                            <label class="form-check-label" for="darkNavigation"> Dark Navigation </label>
+                        </div>
+                    </div>
+                    <div class="mod-status" data-prefix="Global Settings (soon)">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="actionAnimations" data-action="toggle" data-class="set-animations" disabled>
+                            <label class="form-check-label disabled" for="actionAnimations"> Reduced Animations </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="actionCompressedMode" data-action="toggle" data-class="set-compressed-mode" disabled>
+                            <label class="form-check-label disabled" for="actionCompressedMode"> Compressed Mode </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="actionTextContrast" data-action="toggle" data-class="set-text-contrast" disabled>
+                            <label class="form-check-label disabled" for="actionTextContrast"> Contrast Text </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="actionDarkMode" data-action="toggle" data-class="set-dark-mode" disabled>
+                            <label class="form-check-label disabled" for="actionDarkMode"> Dark Mode </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="actionGlassMode" data-action="toggle" data-class="set-glass-mode" disabled>
+                            <label class="form-check-label disabled" for="actionGlassMode"> Glass Mode </label>
+                        </div>
+                    </div>
+                    <div class="mod-status app-themes disabled" data-prefix="Themes (soon)">
+                        <div class="clickable-boxes">
+                            <input type="radio" id="option1" name="options">
+                            <label for="option1" data-prefix="Nebula" style="background: linear-gradient(135deg, #FF6A00, #F6A2D5, #4C91BF, #7A8B92, #AB7C9A);"></label>
+                            <input type="radio" id="option2" name="options">
+                            <label for="option2" data-prefix="Olive" style="background: linear-gradient(135deg, #556B2F, #6B8E23, #8B9A3D, #A9B83E, #BDB76B);"></label>
+                            <input type="radio" id="option3" name="options">
+                            <label for="option3" data-prefix="Solar" style="background: linear-gradient(135deg, #FF8C00, #FFD700, #FF4500, #F1C40F, #F39C12);"></label>
+                            <input type="radio" id="option4" name="options">
+                            <label for="option4" data-prefix="Lunar" style="background: linear-gradient(135deg, #2C3E50, #34495E, #5F6368, #AAB7B8, #E6E6FA, #F1F3F4);"></label>
+                            <input type="radio" id="option5" name="options">
+                            <label for="option5" data-prefix="Night" style="background: linear-gradient(135deg, #1e2a47, #2b3654, #363d6c, #4f5d79, #717b91, #b6c4d1);"></label>
+                            <input type="radio" id="option6" name="options">
+                            <label for="option6" data-prefix="Aurora" style="background: linear-gradient(135deg, #337e7e, #527a4a, #63279b, #7FFF00, #87CEFA, #B0E0E6);"></label>
+                            <input type="radio" id="option7" name="options">
+                            <label for="option7" data-prefix="Mossy" style="background: linear-gradient(135deg, #4F7942, #6B8E23, #3D5B39, #556B2F, #78866B);"></label>
+                            <input type="radio" id="option8" name="options">
+                            <label for="option8" data-prefix="Flare" style="background: linear-gradient(135deg, #FF4500, #FF6347, #F44336, #D32F2F, #B71C1C);"></label>
+                            <input type="radio" id="option9" name="options">
+                            <label for="option9" data-prefix="Storm" style="background: linear-gradient(135deg, #2F4F4F, #3B5360, #4B6A6E, #5A7980, #A9A9A9, #FFD700);"></label>
+                            <input type="radio" id="option10" name="options">
+                            <label for="option10" data-prefix="Drift" style="background: linear-gradient(135deg, #607D8B, #546E7A, #455A64, #37474F, #263238);"></label>
+                        </div>
+                    </div>
+                    <div class="d-flex" style="gap:10px">
+                        <button onclick="appDOM.resetStyle();" class="button reset-button">&#x21bb; Reset Styles</button>
+                        <button onclick="resetPanelState();" class="button">&#x21bb; Reset Panel</button>
+                    </div>
+                </div>
+            </aside>
+            <div class="backdrop" data-action="toggle-swap" data-toggleclass="open" data-target="aside.js-drawer-settings"></div>
+        </div>
+        <div class="backdrop" data-action="toggle-swap" data-toggleclass="app-mobile-menu-open"></div>
+        <!-- core scripts  -->
+        <script>
+            //Running script immediately (before DOMContentLoaded
+            loadPanelState();
+        </script>
+        <!-- Bootstrap JS Bundle with Popper -->
+        <script src="{% static 'scripts/bootstrap.bundle.js' %}"></script>
+        <script src="{% static 'scripts/waves.js' %}"></script>
+        <!-- App JS scripts -->
+        <script src="{% static 'scripts/smartApp.js' %}"></script>
+        <script src="{% static 'scripts/smartNavigation.js' %}"></script>
+        <script src="{% static 'scripts/smartFilter.js' %}"></script>
+        <script src="{% static 'scripts/sortable.js' %}"></script>
+        <script src="{% static 'scripts/smartSlimscroll.js' %}"></script>
+        <!-- Page specific scripts -->
+        {% comment %} <script src="{% static 'scripts/blank.js' %}"></script> {% endcomment %}
+        <script>
+            // Initialize the navigation
+            let nav;
+            const navElement = document.querySelector('#js-primary-nav');
+            if (navElement)
+            {
+                nav = new Navigation(navElement,
+                {
+                    accordion: true,
+                    slideUpSpeed: 350,
+                    slideDownSpeed: 470,
+                    closedSign: '<i class="sa sa-chevron-down"></i>',
+                    openedSign: '<i class="sa sa-chevron-up"></i>',
+                    initClass: 'js-nav-built',
+                    debug: false,
+                    instanceId: `nav-${Date.now()}`,
+                    maxDepth: 5,
+                    sanitize: true,
+                    animationTiming: 'easeOutExpo',
+                    debounceTime: 0,
+                    onError: error => console.error('Navigation error:', error)
+                });
+            }
+            // Waves Effect
+            if (window.Waves)
+            {
+                Waves.attach('.btn:not(.js-waves-off):not(.btn-switch):not(.btn-panel):not(.btn-system):not([data-action="playsound"]), .js-waves-on', ['waves-themed']);
+                Waves.init();
+            }
+            // Initialize the list filter
+            document.addEventListener('DOMContentLoaded', function()
+            {
+                //initialize smartApp.js
+                appDOM.checkActiveStyles().debug(false);
+                // Initialize the list filter
+                var listFilter = new ListFilter('#js-nav-menu', '#searchInput',
+                {
+                    messageSelector: '.js-filter-message',
+                    debounceWait: 200,
+                    minLength: 2,
+                    caseSensitive: false,
+                    onFilter: function(filter)
+                    {
+                        console.log('Filtering with:', filter);
+                    },
+                    onReset: function()
+                    {
+                        console.log('Filter reset');
+                    }
+                });
+                // sortablejs
+                // Initialize Sortable for each column
+                // turn off sortable by adding "sortable-off" class to main-content before init 
+                // this wil however still load any saved state
+                const columns = document.querySelectorAll('.main-content:not(.sortable-off) > .row > [class^="col-"]');
+                if (columns.length > 0 && typeof Sortable !== 'undefined')
+                {
+                    columns.forEach(column =>
+                    {
+                        Sortable.create(column,
+                        {
+                            animation: 150,
+                            ghostClass: 'panel-selected',
+                            handle: '.panel-hdr > h2',
+                            filter: '.panel-locked', //add this close and panel will be locked
+                            draggable: '.panel:not(.panel-locked):not(.panel-fullscreen)',
+                            group: 'sapanels',
+                            onEnd: function()
+                            {
+                                savePanelState(); // Save state after each sort
+                            }
+                        });
+                    });
+                    // add class to app-content if sortable is active
+                    document.querySelector('.main-content').classList.add('sortable-active');
+                }
+                else
+                {
+                    document.querySelector('.main-content').classList.add('sortable-inactive');
+                }
+                //SmartSlimScroll
+                if (!mobileOperator())
+                {
+                    new smartSlimScroll('.custom-scroll',
+                    {
+                        height: '100%',
+                        size: '4px',
+                        position: 'right',
+                        color: '#000',
+                        alwaysVisible: false,
+                        railVisible: true,
+                        railColor: '#222',
+                        railOpacity: 0,
+                        wheelStep: 10,
+                        offsetX: '6px',
+                        offsetY: '8px'
+                    });
+                }
+                else
+                {
+                    document.getElementsByTagName('BODY')[0].classList.add('no-slimscroll');
+                }
+            });
+            // Initialize tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl)
+            {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
+            // Initialize popovers
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function(popoverTriggerEl)
+            {
+                return new bootstrap.Popover(popoverTriggerEl)
+            })
+            // Set default dropdown behavior
+            bootstrap.Dropdown.Default.autoClose = 'outside';
+            // Inject additional scripts dynamically
+            // Your inline JavaScript code here
+            //initializeBlank();
+            console.log('Blank page initialized!');
+        </script>
+    </body>
+</html>

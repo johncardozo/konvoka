@@ -1,0 +1,4098 @@
+{
+  "name": "smartadmin-v5",
+  "type": "directory",
+  "children": [
+    {
+      "name": "gulpfile.js",
+      "type": "file",
+      "path": "gulpfile.js"
+    },
+    {
+      "name": "package.json",
+      "type": "file",
+      "path": "package.json"
+    },
+    {
+      "name": "README.md",
+      "type": "file",
+      "path": "README.md"
+    },
+    {
+      "name": "src",
+      "type": "directory",
+      "children": [
+        {
+          "name": "css",
+          "type": "directory",
+          "children": [
+            {
+              "name": "waves.css",
+              "type": "file",
+              "path": "src/css/waves.css"
+            }
+          ]
+        },
+        {
+          "name": "e-templates",
+          "type": "directory",
+          "children": [
+            {
+              "name": "email-invoice-due.html",
+              "type": "file",
+              "path": "src/e-templates/email-invoice-due.html"
+            },
+            {
+              "name": "email-new-login.html",
+              "type": "file",
+              "path": "src/e-templates/email-new-login.html"
+            },
+            {
+              "name": "email-order.html",
+              "type": "file",
+              "path": "src/e-templates/email-order.html"
+            },
+            {
+              "name": "email-resetpassword.html",
+              "type": "file",
+              "path": "src/e-templates/email-resetpassword.html"
+            },
+            {
+              "name": "email-temp-login.html",
+              "type": "file",
+              "path": "src/e-templates/email-temp-login.html"
+            },
+            {
+              "name": "email-verification.html",
+              "type": "file",
+              "path": "src/e-templates/email-verification.html"
+            },
+            {
+              "name": "logo-dark.svg",
+              "type": "file",
+              "path": "src/e-templates/logo-dark.svg"
+            },
+            {
+              "name": "logo.svg",
+              "type": "file",
+              "path": "src/e-templates/logo.svg"
+            }
+          ]
+        },
+        {
+          "name": "icons",
+          "type": "directory",
+          "children": [
+            {
+              "name": "activity.svg",
+              "type": "file",
+              "path": "src/icons/activity.svg"
+            },
+            {
+              "name": "airplay.svg",
+              "type": "file",
+              "path": "src/icons/airplay.svg"
+            },
+            {
+              "name": "alert-circle.svg",
+              "type": "file",
+              "path": "src/icons/alert-circle.svg"
+            },
+            {
+              "name": "alert-octagon.svg",
+              "type": "file",
+              "path": "src/icons/alert-octagon.svg"
+            },
+            {
+              "name": "alert-triangle.svg",
+              "type": "file",
+              "path": "src/icons/alert-triangle.svg"
+            },
+            {
+              "name": "align-center.svg",
+              "type": "file",
+              "path": "src/icons/align-center.svg"
+            },
+            {
+              "name": "align-justify.svg",
+              "type": "file",
+              "path": "src/icons/align-justify.svg"
+            },
+            {
+              "name": "align-left.svg",
+              "type": "file",
+              "path": "src/icons/align-left.svg"
+            },
+            {
+              "name": "align-right.svg",
+              "type": "file",
+              "path": "src/icons/align-right.svg"
+            },
+            {
+              "name": "anchor.svg",
+              "type": "file",
+              "path": "src/icons/anchor.svg"
+            },
+            {
+              "name": "aperture.svg",
+              "type": "file",
+              "path": "src/icons/aperture.svg"
+            },
+            {
+              "name": "archive.svg",
+              "type": "file",
+              "path": "src/icons/archive.svg"
+            },
+            {
+              "name": "arrow-down-circle.svg",
+              "type": "file",
+              "path": "src/icons/arrow-down-circle.svg"
+            },
+            {
+              "name": "arrow-down-left.svg",
+              "type": "file",
+              "path": "src/icons/arrow-down-left.svg"
+            },
+            {
+              "name": "arrow-down-right.svg",
+              "type": "file",
+              "path": "src/icons/arrow-down-right.svg"
+            },
+            {
+              "name": "arrow-down.svg",
+              "type": "file",
+              "path": "src/icons/arrow-down.svg"
+            },
+            {
+              "name": "arrow-left-circle.svg",
+              "type": "file",
+              "path": "src/icons/arrow-left-circle.svg"
+            },
+            {
+              "name": "arrow-left.svg",
+              "type": "file",
+              "path": "src/icons/arrow-left.svg"
+            },
+            {
+              "name": "arrow-right-circle.svg",
+              "type": "file",
+              "path": "src/icons/arrow-right-circle.svg"
+            },
+            {
+              "name": "arrow-right.svg",
+              "type": "file",
+              "path": "src/icons/arrow-right.svg"
+            },
+            {
+              "name": "arrow-up-circle.svg",
+              "type": "file",
+              "path": "src/icons/arrow-up-circle.svg"
+            },
+            {
+              "name": "arrow-up-left.svg",
+              "type": "file",
+              "path": "src/icons/arrow-up-left.svg"
+            },
+            {
+              "name": "arrow-up-right.svg",
+              "type": "file",
+              "path": "src/icons/arrow-up-right.svg"
+            },
+            {
+              "name": "arrow-up.svg",
+              "type": "file",
+              "path": "src/icons/arrow-up.svg"
+            },
+            {
+              "name": "at-sign.svg",
+              "type": "file",
+              "path": "src/icons/at-sign.svg"
+            },
+            {
+              "name": "award.svg",
+              "type": "file",
+              "path": "src/icons/award.svg"
+            },
+            {
+              "name": "bar-chart-2.svg",
+              "type": "file",
+              "path": "src/icons/bar-chart-2.svg"
+            },
+            {
+              "name": "bar-chart.svg",
+              "type": "file",
+              "path": "src/icons/bar-chart.svg"
+            },
+            {
+              "name": "battery-charging.svg",
+              "type": "file",
+              "path": "src/icons/battery-charging.svg"
+            },
+            {
+              "name": "battery.svg",
+              "type": "file",
+              "path": "src/icons/battery.svg"
+            },
+            {
+              "name": "bell-off.svg",
+              "type": "file",
+              "path": "src/icons/bell-off.svg"
+            },
+            {
+              "name": "bell.svg",
+              "type": "file",
+              "path": "src/icons/bell.svg"
+            },
+            {
+              "name": "bluetooth.svg",
+              "type": "file",
+              "path": "src/icons/bluetooth.svg"
+            },
+            {
+              "name": "bold.svg",
+              "type": "file",
+              "path": "src/icons/bold.svg"
+            },
+            {
+              "name": "book-open.svg",
+              "type": "file",
+              "path": "src/icons/book-open.svg"
+            },
+            {
+              "name": "book.svg",
+              "type": "file",
+              "path": "src/icons/book.svg"
+            },
+            {
+              "name": "bookmark.svg",
+              "type": "file",
+              "path": "src/icons/bookmark.svg"
+            },
+            {
+              "name": "box.svg",
+              "type": "file",
+              "path": "src/icons/box.svg"
+            },
+            {
+              "name": "briefcase.svg",
+              "type": "file",
+              "path": "src/icons/briefcase.svg"
+            },
+            {
+              "name": "calendar.svg",
+              "type": "file",
+              "path": "src/icons/calendar.svg"
+            },
+            {
+              "name": "camera-off.svg",
+              "type": "file",
+              "path": "src/icons/camera-off.svg"
+            },
+            {
+              "name": "camera.svg",
+              "type": "file",
+              "path": "src/icons/camera.svg"
+            },
+            {
+              "name": "cast.svg",
+              "type": "file",
+              "path": "src/icons/cast.svg"
+            },
+            {
+              "name": "check-circle.svg",
+              "type": "file",
+              "path": "src/icons/check-circle.svg"
+            },
+            {
+              "name": "check-square.svg",
+              "type": "file",
+              "path": "src/icons/check-square.svg"
+            },
+            {
+              "name": "check.svg",
+              "type": "file",
+              "path": "src/icons/check.svg"
+            },
+            {
+              "name": "chevron-down.svg",
+              "type": "file",
+              "path": "src/icons/chevron-down.svg"
+            },
+            {
+              "name": "chevron-left.svg",
+              "type": "file",
+              "path": "src/icons/chevron-left.svg"
+            },
+            {
+              "name": "chevron-right.svg",
+              "type": "file",
+              "path": "src/icons/chevron-right.svg"
+            },
+            {
+              "name": "chevron-up.svg",
+              "type": "file",
+              "path": "src/icons/chevron-up.svg"
+            },
+            {
+              "name": "chevrons-down.svg",
+              "type": "file",
+              "path": "src/icons/chevrons-down.svg"
+            },
+            {
+              "name": "chevrons-left.svg",
+              "type": "file",
+              "path": "src/icons/chevrons-left.svg"
+            },
+            {
+              "name": "chevrons-right.svg",
+              "type": "file",
+              "path": "src/icons/chevrons-right.svg"
+            },
+            {
+              "name": "chevrons-up.svg",
+              "type": "file",
+              "path": "src/icons/chevrons-up.svg"
+            },
+            {
+              "name": "chrome.svg",
+              "type": "file",
+              "path": "src/icons/chrome.svg"
+            },
+            {
+              "name": "circle.svg",
+              "type": "file",
+              "path": "src/icons/circle.svg"
+            },
+            {
+              "name": "clipboard.svg",
+              "type": "file",
+              "path": "src/icons/clipboard.svg"
+            },
+            {
+              "name": "clock.svg",
+              "type": "file",
+              "path": "src/icons/clock.svg"
+            },
+            {
+              "name": "cloud-drizzle.svg",
+              "type": "file",
+              "path": "src/icons/cloud-drizzle.svg"
+            },
+            {
+              "name": "cloud-lightning.svg",
+              "type": "file",
+              "path": "src/icons/cloud-lightning.svg"
+            },
+            {
+              "name": "cloud-off.svg",
+              "type": "file",
+              "path": "src/icons/cloud-off.svg"
+            },
+            {
+              "name": "cloud-rain.svg",
+              "type": "file",
+              "path": "src/icons/cloud-rain.svg"
+            },
+            {
+              "name": "cloud-snow.svg",
+              "type": "file",
+              "path": "src/icons/cloud-snow.svg"
+            },
+            {
+              "name": "cloud.svg",
+              "type": "file",
+              "path": "src/icons/cloud.svg"
+            },
+            {
+              "name": "code.svg",
+              "type": "file",
+              "path": "src/icons/code.svg"
+            },
+            {
+              "name": "codepen.svg",
+              "type": "file",
+              "path": "src/icons/codepen.svg"
+            },
+            {
+              "name": "codesandbox.svg",
+              "type": "file",
+              "path": "src/icons/codesandbox.svg"
+            },
+            {
+              "name": "coffee.svg",
+              "type": "file",
+              "path": "src/icons/coffee.svg"
+            },
+            {
+              "name": "columns.svg",
+              "type": "file",
+              "path": "src/icons/columns.svg"
+            },
+            {
+              "name": "command.svg",
+              "type": "file",
+              "path": "src/icons/command.svg"
+            },
+            {
+              "name": "compass.svg",
+              "type": "file",
+              "path": "src/icons/compass.svg"
+            },
+            {
+              "name": "copy.svg",
+              "type": "file",
+              "path": "src/icons/copy.svg"
+            },
+            {
+              "name": "corner-down-left.svg",
+              "type": "file",
+              "path": "src/icons/corner-down-left.svg"
+            },
+            {
+              "name": "corner-down-right.svg",
+              "type": "file",
+              "path": "src/icons/corner-down-right.svg"
+            },
+            {
+              "name": "corner-left-down.svg",
+              "type": "file",
+              "path": "src/icons/corner-left-down.svg"
+            },
+            {
+              "name": "corner-left-up.svg",
+              "type": "file",
+              "path": "src/icons/corner-left-up.svg"
+            },
+            {
+              "name": "corner-right-down.svg",
+              "type": "file",
+              "path": "src/icons/corner-right-down.svg"
+            },
+            {
+              "name": "corner-right-up.svg",
+              "type": "file",
+              "path": "src/icons/corner-right-up.svg"
+            },
+            {
+              "name": "corner-up-left.svg",
+              "type": "file",
+              "path": "src/icons/corner-up-left.svg"
+            },
+            {
+              "name": "corner-up-right.svg",
+              "type": "file",
+              "path": "src/icons/corner-up-right.svg"
+            },
+            {
+              "name": "cpu.svg",
+              "type": "file",
+              "path": "src/icons/cpu.svg"
+            },
+            {
+              "name": "credit-card.svg",
+              "type": "file",
+              "path": "src/icons/credit-card.svg"
+            },
+            {
+              "name": "crop.svg",
+              "type": "file",
+              "path": "src/icons/crop.svg"
+            },
+            {
+              "name": "crosshair.svg",
+              "type": "file",
+              "path": "src/icons/crosshair.svg"
+            },
+            {
+              "name": "database.svg",
+              "type": "file",
+              "path": "src/icons/database.svg"
+            },
+            {
+              "name": "delete.svg",
+              "type": "file",
+              "path": "src/icons/delete.svg"
+            },
+            {
+              "name": "disc.svg",
+              "type": "file",
+              "path": "src/icons/disc.svg"
+            },
+            {
+              "name": "divide-circle.svg",
+              "type": "file",
+              "path": "src/icons/divide-circle.svg"
+            },
+            {
+              "name": "divide-square.svg",
+              "type": "file",
+              "path": "src/icons/divide-square.svg"
+            },
+            {
+              "name": "divide.svg",
+              "type": "file",
+              "path": "src/icons/divide.svg"
+            },
+            {
+              "name": "dollar-sign.svg",
+              "type": "file",
+              "path": "src/icons/dollar-sign.svg"
+            },
+            {
+              "name": "download-cloud.svg",
+              "type": "file",
+              "path": "src/icons/download-cloud.svg"
+            },
+            {
+              "name": "download.svg",
+              "type": "file",
+              "path": "src/icons/download.svg"
+            },
+            {
+              "name": "dribbble.svg",
+              "type": "file",
+              "path": "src/icons/dribbble.svg"
+            },
+            {
+              "name": "droplet.svg",
+              "type": "file",
+              "path": "src/icons/droplet.svg"
+            },
+            {
+              "name": "edit-2.svg",
+              "type": "file",
+              "path": "src/icons/edit-2.svg"
+            },
+            {
+              "name": "edit-3.svg",
+              "type": "file",
+              "path": "src/icons/edit-3.svg"
+            },
+            {
+              "name": "edit.svg",
+              "type": "file",
+              "path": "src/icons/edit.svg"
+            },
+            {
+              "name": "external-link.svg",
+              "type": "file",
+              "path": "src/icons/external-link.svg"
+            },
+            {
+              "name": "eye-off.svg",
+              "type": "file",
+              "path": "src/icons/eye-off.svg"
+            },
+            {
+              "name": "eye.svg",
+              "type": "file",
+              "path": "src/icons/eye.svg"
+            },
+            {
+              "name": "facebook.svg",
+              "type": "file",
+              "path": "src/icons/facebook.svg"
+            },
+            {
+              "name": "fast-forward.svg",
+              "type": "file",
+              "path": "src/icons/fast-forward.svg"
+            },
+            {
+              "name": "feather.svg",
+              "type": "file",
+              "path": "src/icons/feather.svg"
+            },
+            {
+              "name": "figma.svg",
+              "type": "file",
+              "path": "src/icons/figma.svg"
+            },
+            {
+              "name": "file-minus.svg",
+              "type": "file",
+              "path": "src/icons/file-minus.svg"
+            },
+            {
+              "name": "file-plus.svg",
+              "type": "file",
+              "path": "src/icons/file-plus.svg"
+            },
+            {
+              "name": "file-text.svg",
+              "type": "file",
+              "path": "src/icons/file-text.svg"
+            },
+            {
+              "name": "file.svg",
+              "type": "file",
+              "path": "src/icons/file.svg"
+            },
+            {
+              "name": "film.svg",
+              "type": "file",
+              "path": "src/icons/film.svg"
+            },
+            {
+              "name": "filter.svg",
+              "type": "file",
+              "path": "src/icons/filter.svg"
+            },
+            {
+              "name": "flag.svg",
+              "type": "file",
+              "path": "src/icons/flag.svg"
+            },
+            {
+              "name": "folder-minus.svg",
+              "type": "file",
+              "path": "src/icons/folder-minus.svg"
+            },
+            {
+              "name": "folder-plus.svg",
+              "type": "file",
+              "path": "src/icons/folder-plus.svg"
+            },
+            {
+              "name": "folder.svg",
+              "type": "file",
+              "path": "src/icons/folder.svg"
+            },
+            {
+              "name": "framer.svg",
+              "type": "file",
+              "path": "src/icons/framer.svg"
+            },
+            {
+              "name": "frown.svg",
+              "type": "file",
+              "path": "src/icons/frown.svg"
+            },
+            {
+              "name": "gift.svg",
+              "type": "file",
+              "path": "src/icons/gift.svg"
+            },
+            {
+              "name": "git-branch.svg",
+              "type": "file",
+              "path": "src/icons/git-branch.svg"
+            },
+            {
+              "name": "git-commit.svg",
+              "type": "file",
+              "path": "src/icons/git-commit.svg"
+            },
+            {
+              "name": "git-merge.svg",
+              "type": "file",
+              "path": "src/icons/git-merge.svg"
+            },
+            {
+              "name": "git-pull-request.svg",
+              "type": "file",
+              "path": "src/icons/git-pull-request.svg"
+            },
+            {
+              "name": "github.svg",
+              "type": "file",
+              "path": "src/icons/github.svg"
+            },
+            {
+              "name": "gitlab.svg",
+              "type": "file",
+              "path": "src/icons/gitlab.svg"
+            },
+            {
+              "name": "globe.svg",
+              "type": "file",
+              "path": "src/icons/globe.svg"
+            },
+            {
+              "name": "grid.svg",
+              "type": "file",
+              "path": "src/icons/grid.svg"
+            },
+            {
+              "name": "hard-drive.svg",
+              "type": "file",
+              "path": "src/icons/hard-drive.svg"
+            },
+            {
+              "name": "hash.svg",
+              "type": "file",
+              "path": "src/icons/hash.svg"
+            },
+            {
+              "name": "headphones.svg",
+              "type": "file",
+              "path": "src/icons/headphones.svg"
+            },
+            {
+              "name": "heart.svg",
+              "type": "file",
+              "path": "src/icons/heart.svg"
+            },
+            {
+              "name": "help-circle.svg",
+              "type": "file",
+              "path": "src/icons/help-circle.svg"
+            },
+            {
+              "name": "hexagon.svg",
+              "type": "file",
+              "path": "src/icons/hexagon.svg"
+            },
+            {
+              "name": "home.svg",
+              "type": "file",
+              "path": "src/icons/home.svg"
+            },
+            {
+              "name": "image.svg",
+              "type": "file",
+              "path": "src/icons/image.svg"
+            },
+            {
+              "name": "inbox.svg",
+              "type": "file",
+              "path": "src/icons/inbox.svg"
+            },
+            {
+              "name": "info.svg",
+              "type": "file",
+              "path": "src/icons/info.svg"
+            },
+            {
+              "name": "instagram.svg",
+              "type": "file",
+              "path": "src/icons/instagram.svg"
+            },
+            {
+              "name": "italic.svg",
+              "type": "file",
+              "path": "src/icons/italic.svg"
+            },
+            {
+              "name": "key.svg",
+              "type": "file",
+              "path": "src/icons/key.svg"
+            },
+            {
+              "name": "layers.svg",
+              "type": "file",
+              "path": "src/icons/layers.svg"
+            },
+            {
+              "name": "layout.svg",
+              "type": "file",
+              "path": "src/icons/layout.svg"
+            },
+            {
+              "name": "life-buoy.svg",
+              "type": "file",
+              "path": "src/icons/life-buoy.svg"
+            },
+            {
+              "name": "link-2.svg",
+              "type": "file",
+              "path": "src/icons/link-2.svg"
+            },
+            {
+              "name": "link.svg",
+              "type": "file",
+              "path": "src/icons/link.svg"
+            },
+            {
+              "name": "linkedin.svg",
+              "type": "file",
+              "path": "src/icons/linkedin.svg"
+            },
+            {
+              "name": "list.svg",
+              "type": "file",
+              "path": "src/icons/list.svg"
+            },
+            {
+              "name": "loader.svg",
+              "type": "file",
+              "path": "src/icons/loader.svg"
+            },
+            {
+              "name": "lock.svg",
+              "type": "file",
+              "path": "src/icons/lock.svg"
+            },
+            {
+              "name": "log-in.svg",
+              "type": "file",
+              "path": "src/icons/log-in.svg"
+            },
+            {
+              "name": "log-out.svg",
+              "type": "file",
+              "path": "src/icons/log-out.svg"
+            },
+            {
+              "name": "mail.svg",
+              "type": "file",
+              "path": "src/icons/mail.svg"
+            },
+            {
+              "name": "map-pin.svg",
+              "type": "file",
+              "path": "src/icons/map-pin.svg"
+            },
+            {
+              "name": "map.svg",
+              "type": "file",
+              "path": "src/icons/map.svg"
+            },
+            {
+              "name": "maximize-2.svg",
+              "type": "file",
+              "path": "src/icons/maximize-2.svg"
+            },
+            {
+              "name": "maximize.svg",
+              "type": "file",
+              "path": "src/icons/maximize.svg"
+            },
+            {
+              "name": "meh.svg",
+              "type": "file",
+              "path": "src/icons/meh.svg"
+            },
+            {
+              "name": "menu.svg",
+              "type": "file",
+              "path": "src/icons/menu.svg"
+            },
+            {
+              "name": "message-circle.svg",
+              "type": "file",
+              "path": "src/icons/message-circle.svg"
+            },
+            {
+              "name": "message-square.svg",
+              "type": "file",
+              "path": "src/icons/message-square.svg"
+            },
+            {
+              "name": "mic-off.svg",
+              "type": "file",
+              "path": "src/icons/mic-off.svg"
+            },
+            {
+              "name": "mic.svg",
+              "type": "file",
+              "path": "src/icons/mic.svg"
+            },
+            {
+              "name": "minimize-2.svg",
+              "type": "file",
+              "path": "src/icons/minimize-2.svg"
+            },
+            {
+              "name": "minimize.svg",
+              "type": "file",
+              "path": "src/icons/minimize.svg"
+            },
+            {
+              "name": "minus-circle.svg",
+              "type": "file",
+              "path": "src/icons/minus-circle.svg"
+            },
+            {
+              "name": "minus-square.svg",
+              "type": "file",
+              "path": "src/icons/minus-square.svg"
+            },
+            {
+              "name": "minus.svg",
+              "type": "file",
+              "path": "src/icons/minus.svg"
+            },
+            {
+              "name": "monitor.svg",
+              "type": "file",
+              "path": "src/icons/monitor.svg"
+            },
+            {
+              "name": "moon.svg",
+              "type": "file",
+              "path": "src/icons/moon.svg"
+            },
+            {
+              "name": "more-horizontal.svg",
+              "type": "file",
+              "path": "src/icons/more-horizontal.svg"
+            },
+            {
+              "name": "more-vertical.svg",
+              "type": "file",
+              "path": "src/icons/more-vertical.svg"
+            },
+            {
+              "name": "mouse-pointer.svg",
+              "type": "file",
+              "path": "src/icons/mouse-pointer.svg"
+            },
+            {
+              "name": "move.svg",
+              "type": "file",
+              "path": "src/icons/move.svg"
+            },
+            {
+              "name": "music.svg",
+              "type": "file",
+              "path": "src/icons/music.svg"
+            },
+            {
+              "name": "navigation-2.svg",
+              "type": "file",
+              "path": "src/icons/navigation-2.svg"
+            },
+            {
+              "name": "navigation.svg",
+              "type": "file",
+              "path": "src/icons/navigation.svg"
+            },
+            {
+              "name": "octagon.svg",
+              "type": "file",
+              "path": "src/icons/octagon.svg"
+            },
+            {
+              "name": "package.svg",
+              "type": "file",
+              "path": "src/icons/package.svg"
+            },
+            {
+              "name": "paperclip.svg",
+              "type": "file",
+              "path": "src/icons/paperclip.svg"
+            },
+            {
+              "name": "pause-circle.svg",
+              "type": "file",
+              "path": "src/icons/pause-circle.svg"
+            },
+            {
+              "name": "pause.svg",
+              "type": "file",
+              "path": "src/icons/pause.svg"
+            },
+            {
+              "name": "pen-tool.svg",
+              "type": "file",
+              "path": "src/icons/pen-tool.svg"
+            },
+            {
+              "name": "percent.svg",
+              "type": "file",
+              "path": "src/icons/percent.svg"
+            },
+            {
+              "name": "phone-call.svg",
+              "type": "file",
+              "path": "src/icons/phone-call.svg"
+            },
+            {
+              "name": "phone-forwarded.svg",
+              "type": "file",
+              "path": "src/icons/phone-forwarded.svg"
+            },
+            {
+              "name": "phone-incoming.svg",
+              "type": "file",
+              "path": "src/icons/phone-incoming.svg"
+            },
+            {
+              "name": "phone-missed.svg",
+              "type": "file",
+              "path": "src/icons/phone-missed.svg"
+            },
+            {
+              "name": "phone-off.svg",
+              "type": "file",
+              "path": "src/icons/phone-off.svg"
+            },
+            {
+              "name": "phone-outgoing.svg",
+              "type": "file",
+              "path": "src/icons/phone-outgoing.svg"
+            },
+            {
+              "name": "phone.svg",
+              "type": "file",
+              "path": "src/icons/phone.svg"
+            },
+            {
+              "name": "pie-chart.svg",
+              "type": "file",
+              "path": "src/icons/pie-chart.svg"
+            },
+            {
+              "name": "play-circle.svg",
+              "type": "file",
+              "path": "src/icons/play-circle.svg"
+            },
+            {
+              "name": "play.svg",
+              "type": "file",
+              "path": "src/icons/play.svg"
+            },
+            {
+              "name": "plus-circle.svg",
+              "type": "file",
+              "path": "src/icons/plus-circle.svg"
+            },
+            {
+              "name": "plus-square.svg",
+              "type": "file",
+              "path": "src/icons/plus-square.svg"
+            },
+            {
+              "name": "plus.svg",
+              "type": "file",
+              "path": "src/icons/plus.svg"
+            },
+            {
+              "name": "pocket.svg",
+              "type": "file",
+              "path": "src/icons/pocket.svg"
+            },
+            {
+              "name": "power.svg",
+              "type": "file",
+              "path": "src/icons/power.svg"
+            },
+            {
+              "name": "printer.svg",
+              "type": "file",
+              "path": "src/icons/printer.svg"
+            },
+            {
+              "name": "radio.svg",
+              "type": "file",
+              "path": "src/icons/radio.svg"
+            },
+            {
+              "name": "refresh-ccw.svg",
+              "type": "file",
+              "path": "src/icons/refresh-ccw.svg"
+            },
+            {
+              "name": "refresh-cw.svg",
+              "type": "file",
+              "path": "src/icons/refresh-cw.svg"
+            },
+            {
+              "name": "repeat.svg",
+              "type": "file",
+              "path": "src/icons/repeat.svg"
+            },
+            {
+              "name": "rewind.svg",
+              "type": "file",
+              "path": "src/icons/rewind.svg"
+            },
+            {
+              "name": "rotate-ccw.svg",
+              "type": "file",
+              "path": "src/icons/rotate-ccw.svg"
+            },
+            {
+              "name": "rotate-cw.svg",
+              "type": "file",
+              "path": "src/icons/rotate-cw.svg"
+            },
+            {
+              "name": "rss.svg",
+              "type": "file",
+              "path": "src/icons/rss.svg"
+            },
+            {
+              "name": "save.svg",
+              "type": "file",
+              "path": "src/icons/save.svg"
+            },
+            {
+              "name": "scissors.svg",
+              "type": "file",
+              "path": "src/icons/scissors.svg"
+            },
+            {
+              "name": "search.svg",
+              "type": "file",
+              "path": "src/icons/search.svg"
+            },
+            {
+              "name": "send.svg",
+              "type": "file",
+              "path": "src/icons/send.svg"
+            },
+            {
+              "name": "server.svg",
+              "type": "file",
+              "path": "src/icons/server.svg"
+            },
+            {
+              "name": "settings.svg",
+              "type": "file",
+              "path": "src/icons/settings.svg"
+            },
+            {
+              "name": "share-2.svg",
+              "type": "file",
+              "path": "src/icons/share-2.svg"
+            },
+            {
+              "name": "share.svg",
+              "type": "file",
+              "path": "src/icons/share.svg"
+            },
+            {
+              "name": "shield-off.svg",
+              "type": "file",
+              "path": "src/icons/shield-off.svg"
+            },
+            {
+              "name": "shield.svg",
+              "type": "file",
+              "path": "src/icons/shield.svg"
+            },
+            {
+              "name": "shopping-bag.svg",
+              "type": "file",
+              "path": "src/icons/shopping-bag.svg"
+            },
+            {
+              "name": "shopping-cart.svg",
+              "type": "file",
+              "path": "src/icons/shopping-cart.svg"
+            },
+            {
+              "name": "shuffle.svg",
+              "type": "file",
+              "path": "src/icons/shuffle.svg"
+            },
+            {
+              "name": "sidebar.svg",
+              "type": "file",
+              "path": "src/icons/sidebar.svg"
+            },
+            {
+              "name": "skip-back.svg",
+              "type": "file",
+              "path": "src/icons/skip-back.svg"
+            },
+            {
+              "name": "skip-forward.svg",
+              "type": "file",
+              "path": "src/icons/skip-forward.svg"
+            },
+            {
+              "name": "slack.svg",
+              "type": "file",
+              "path": "src/icons/slack.svg"
+            },
+            {
+              "name": "slash.svg",
+              "type": "file",
+              "path": "src/icons/slash.svg"
+            },
+            {
+              "name": "sliders.svg",
+              "type": "file",
+              "path": "src/icons/sliders.svg"
+            },
+            {
+              "name": "smartphone.svg",
+              "type": "file",
+              "path": "src/icons/smartphone.svg"
+            },
+            {
+              "name": "smile.svg",
+              "type": "file",
+              "path": "src/icons/smile.svg"
+            },
+            {
+              "name": "speaker.svg",
+              "type": "file",
+              "path": "src/icons/speaker.svg"
+            },
+            {
+              "name": "square.svg",
+              "type": "file",
+              "path": "src/icons/square.svg"
+            },
+            {
+              "name": "star.svg",
+              "type": "file",
+              "path": "src/icons/star.svg"
+            },
+            {
+              "name": "stop-circle.svg",
+              "type": "file",
+              "path": "src/icons/stop-circle.svg"
+            },
+            {
+              "name": "sun.svg",
+              "type": "file",
+              "path": "src/icons/sun.svg"
+            },
+            {
+              "name": "sunrise.svg",
+              "type": "file",
+              "path": "src/icons/sunrise.svg"
+            },
+            {
+              "name": "sunset.svg",
+              "type": "file",
+              "path": "src/icons/sunset.svg"
+            },
+            {
+              "name": "table.svg",
+              "type": "file",
+              "path": "src/icons/table.svg"
+            },
+            {
+              "name": "tablet.svg",
+              "type": "file",
+              "path": "src/icons/tablet.svg"
+            },
+            {
+              "name": "tag.svg",
+              "type": "file",
+              "path": "src/icons/tag.svg"
+            },
+            {
+              "name": "target.svg",
+              "type": "file",
+              "path": "src/icons/target.svg"
+            },
+            {
+              "name": "terminal.svg",
+              "type": "file",
+              "path": "src/icons/terminal.svg"
+            },
+            {
+              "name": "thermometer.svg",
+              "type": "file",
+              "path": "src/icons/thermometer.svg"
+            },
+            {
+              "name": "thumbs-down.svg",
+              "type": "file",
+              "path": "src/icons/thumbs-down.svg"
+            },
+            {
+              "name": "thumbs-up.svg",
+              "type": "file",
+              "path": "src/icons/thumbs-up.svg"
+            },
+            {
+              "name": "toggle-left.svg",
+              "type": "file",
+              "path": "src/icons/toggle-left.svg"
+            },
+            {
+              "name": "toggle-right.svg",
+              "type": "file",
+              "path": "src/icons/toggle-right.svg"
+            },
+            {
+              "name": "tool.svg",
+              "type": "file",
+              "path": "src/icons/tool.svg"
+            },
+            {
+              "name": "trash-2.svg",
+              "type": "file",
+              "path": "src/icons/trash-2.svg"
+            },
+            {
+              "name": "trash.svg",
+              "type": "file",
+              "path": "src/icons/trash.svg"
+            },
+            {
+              "name": "trello.svg",
+              "type": "file",
+              "path": "src/icons/trello.svg"
+            },
+            {
+              "name": "trending-down.svg",
+              "type": "file",
+              "path": "src/icons/trending-down.svg"
+            },
+            {
+              "name": "trending-up.svg",
+              "type": "file",
+              "path": "src/icons/trending-up.svg"
+            },
+            {
+              "name": "triangle.svg",
+              "type": "file",
+              "path": "src/icons/triangle.svg"
+            },
+            {
+              "name": "truck.svg",
+              "type": "file",
+              "path": "src/icons/truck.svg"
+            },
+            {
+              "name": "tv.svg",
+              "type": "file",
+              "path": "src/icons/tv.svg"
+            },
+            {
+              "name": "twitch.svg",
+              "type": "file",
+              "path": "src/icons/twitch.svg"
+            },
+            {
+              "name": "twitter.svg",
+              "type": "file",
+              "path": "src/icons/twitter.svg"
+            },
+            {
+              "name": "type.svg",
+              "type": "file",
+              "path": "src/icons/type.svg"
+            },
+            {
+              "name": "umbrella.svg",
+              "type": "file",
+              "path": "src/icons/umbrella.svg"
+            },
+            {
+              "name": "underline.svg",
+              "type": "file",
+              "path": "src/icons/underline.svg"
+            },
+            {
+              "name": "unlock.svg",
+              "type": "file",
+              "path": "src/icons/unlock.svg"
+            },
+            {
+              "name": "upload-cloud.svg",
+              "type": "file",
+              "path": "src/icons/upload-cloud.svg"
+            },
+            {
+              "name": "upload.svg",
+              "type": "file",
+              "path": "src/icons/upload.svg"
+            },
+            {
+              "name": "user-check.svg",
+              "type": "file",
+              "path": "src/icons/user-check.svg"
+            },
+            {
+              "name": "user-minus.svg",
+              "type": "file",
+              "path": "src/icons/user-minus.svg"
+            },
+            {
+              "name": "user-plus.svg",
+              "type": "file",
+              "path": "src/icons/user-plus.svg"
+            },
+            {
+              "name": "user-x.svg",
+              "type": "file",
+              "path": "src/icons/user-x.svg"
+            },
+            {
+              "name": "user.svg",
+              "type": "file",
+              "path": "src/icons/user.svg"
+            },
+            {
+              "name": "users.svg",
+              "type": "file",
+              "path": "src/icons/users.svg"
+            },
+            {
+              "name": "video-off.svg",
+              "type": "file",
+              "path": "src/icons/video-off.svg"
+            },
+            {
+              "name": "video.svg",
+              "type": "file",
+              "path": "src/icons/video.svg"
+            },
+            {
+              "name": "voicemail.svg",
+              "type": "file",
+              "path": "src/icons/voicemail.svg"
+            },
+            {
+              "name": "volume-1.svg",
+              "type": "file",
+              "path": "src/icons/volume-1.svg"
+            },
+            {
+              "name": "volume-2.svg",
+              "type": "file",
+              "path": "src/icons/volume-2.svg"
+            },
+            {
+              "name": "volume-x.svg",
+              "type": "file",
+              "path": "src/icons/volume-x.svg"
+            },
+            {
+              "name": "volume.svg",
+              "type": "file",
+              "path": "src/icons/volume.svg"
+            },
+            {
+              "name": "watch.svg",
+              "type": "file",
+              "path": "src/icons/watch.svg"
+            },
+            {
+              "name": "wifi-off.svg",
+              "type": "file",
+              "path": "src/icons/wifi-off.svg"
+            },
+            {
+              "name": "wifi.svg",
+              "type": "file",
+              "path": "src/icons/wifi.svg"
+            },
+            {
+              "name": "wind.svg",
+              "type": "file",
+              "path": "src/icons/wind.svg"
+            },
+            {
+              "name": "x-circle.svg",
+              "type": "file",
+              "path": "src/icons/x-circle.svg"
+            },
+            {
+              "name": "x-octagon.svg",
+              "type": "file",
+              "path": "src/icons/x-octagon.svg"
+            },
+            {
+              "name": "x-square.svg",
+              "type": "file",
+              "path": "src/icons/x-square.svg"
+            },
+            {
+              "name": "x.svg",
+              "type": "file",
+              "path": "src/icons/x.svg"
+            },
+            {
+              "name": "youtube.svg",
+              "type": "file",
+              "path": "src/icons/youtube.svg"
+            },
+            {
+              "name": "zap-off.svg",
+              "type": "file",
+              "path": "src/icons/zap-off.svg"
+            },
+            {
+              "name": "zap.svg",
+              "type": "file",
+              "path": "src/icons/zap.svg"
+            },
+            {
+              "name": "zoom-in.svg",
+              "type": "file",
+              "path": "src/icons/zoom-in.svg"
+            },
+            {
+              "name": "zoom-out.svg",
+              "type": "file",
+              "path": "src/icons/zoom-out.svg"
+            }
+          ]
+        },
+        {
+          "name": "img",
+          "type": "directory",
+          "children": [
+            {
+              "name": "app-logo.svg",
+              "type": "file",
+              "path": "src/img/app-logo.svg"
+            },
+            {
+              "name": "cover-1-lg.png",
+              "type": "file",
+              "path": "src/img/cover-1-lg.png"
+            },
+            {
+              "name": "cover-2-lg.png",
+              "type": "file",
+              "path": "src/img/cover-2-lg.png"
+            },
+            {
+              "name": "cover-3-lg.png",
+              "type": "file",
+              "path": "src/img/cover-3-lg.png"
+            },
+            {
+              "name": "cover-4-lg.png",
+              "type": "file",
+              "path": "src/img/cover-4-lg.png"
+            },
+            {
+              "name": "cover-5-lg.png",
+              "type": "file",
+              "path": "src/img/cover-5-lg.png"
+            },
+            {
+              "name": "cover-6-lg.png",
+              "type": "file",
+              "path": "src/img/cover-6-lg.png"
+            },
+            {
+              "name": "cover-7-lg.png",
+              "type": "file",
+              "path": "src/img/cover-7-lg.png"
+            },
+            {
+              "name": "demo",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "ajax.png",
+                  "type": "file",
+                  "path": "src/img/demo/ajax.png"
+                },
+                {
+                  "name": "angular.png",
+                  "type": "file",
+                  "path": "src/img/demo/angular.png"
+                },
+                {
+                  "name": "authors",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "josh.png",
+                      "type": "file",
+                      "path": "src/img/demo/authors/josh.png"
+                    },
+                    {
+                      "name": "jovanni.png",
+                      "type": "file",
+                      "path": "src/img/demo/authors/jovanni.png"
+                    },
+                    {
+                      "name": "rajesh.png",
+                      "type": "file",
+                      "path": "src/img/demo/authors/rajesh.png"
+                    },
+                    {
+                      "name": "roberto.png",
+                      "type": "file",
+                      "path": "src/img/demo/authors/roberto.png"
+                    },
+                    {
+                      "name": "sunny.png",
+                      "type": "file",
+                      "path": "src/img/demo/authors/sunny.png"
+                    }
+                  ]
+                },
+                {
+                  "name": "avatars",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "avatar-a.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-a.png"
+                    },
+                    {
+                      "name": "avatar-admin-lg.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-admin-lg.png"
+                    },
+                    {
+                      "name": "avatar-admin-xl.jpeg",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-admin-xl.jpeg"
+                    },
+                    {
+                      "name": "avatar-admin-xl.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-admin-xl.png"
+                    },
+                    {
+                      "name": "avatar-admin.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-admin.png"
+                    },
+                    {
+                      "name": "avatar-admin.txt",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-admin.txt"
+                    },
+                    {
+                      "name": "avatar-b.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-b.png"
+                    },
+                    {
+                      "name": "avatar-c.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-c.png"
+                    },
+                    {
+                      "name": "avatar-d.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-d.png"
+                    },
+                    {
+                      "name": "avatar-e.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-e.png"
+                    },
+                    {
+                      "name": "avatar-f.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-f.png"
+                    },
+                    {
+                      "name": "avatar-g.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-g.png"
+                    },
+                    {
+                      "name": "avatar-h.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-h.png"
+                    },
+                    {
+                      "name": "avatar-i.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-i.png"
+                    },
+                    {
+                      "name": "avatar-j.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-j.png"
+                    },
+                    {
+                      "name": "avatar-k.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-k.png"
+                    },
+                    {
+                      "name": "avatar-m.png",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/avatar-m.png"
+                    },
+                    {
+                      "name": "cc.txt",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/cc.txt"
+                    },
+                    {
+                      "name": "ng.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/avatars/ng.jpg"
+                    }
+                  ]
+                },
+                {
+                  "name": "gallery",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/1.jpg"
+                    },
+                    {
+                      "name": "10.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/10.jpg"
+                    },
+                    {
+                      "name": "11.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/11.jpg"
+                    },
+                    {
+                      "name": "12.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/12.jpg"
+                    },
+                    {
+                      "name": "13.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/13.jpg"
+                    },
+                    {
+                      "name": "14.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/14.jpg"
+                    },
+                    {
+                      "name": "15.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/15.jpg"
+                    },
+                    {
+                      "name": "16.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/16.jpg"
+                    },
+                    {
+                      "name": "17.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/17.jpg"
+                    },
+                    {
+                      "name": "18.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/18.jpg"
+                    },
+                    {
+                      "name": "19.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/19.jpg"
+                    },
+                    {
+                      "name": "2.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/2.jpg"
+                    },
+                    {
+                      "name": "20.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/20.jpg"
+                    },
+                    {
+                      "name": "21.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/21.jpg"
+                    },
+                    {
+                      "name": "22.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/22.jpg"
+                    },
+                    {
+                      "name": "23.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/23.jpg"
+                    },
+                    {
+                      "name": "24.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/24.jpg"
+                    },
+                    {
+                      "name": "25.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/25.jpg"
+                    },
+                    {
+                      "name": "26.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/26.jpg"
+                    },
+                    {
+                      "name": "27.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/27.jpg"
+                    },
+                    {
+                      "name": "28.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/28.jpg"
+                    },
+                    {
+                      "name": "29.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/29.jpg"
+                    },
+                    {
+                      "name": "3.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/3.jpg"
+                    },
+                    {
+                      "name": "30.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/30.jpg"
+                    },
+                    {
+                      "name": "31.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/31.jpg"
+                    },
+                    {
+                      "name": "32.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/32.jpg"
+                    },
+                    {
+                      "name": "33.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/33.jpg"
+                    },
+                    {
+                      "name": "34.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/34.jpg"
+                    },
+                    {
+                      "name": "35.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/35.jpg"
+                    },
+                    {
+                      "name": "36.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/36.jpg"
+                    },
+                    {
+                      "name": "37.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/37.jpg"
+                    },
+                    {
+                      "name": "38.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/38.jpg"
+                    },
+                    {
+                      "name": "39.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/39.jpg"
+                    },
+                    {
+                      "name": "4.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/4.jpg"
+                    },
+                    {
+                      "name": "40.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/40.jpg"
+                    },
+                    {
+                      "name": "41.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/41.jpg"
+                    },
+                    {
+                      "name": "42.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/42.jpg"
+                    },
+                    {
+                      "name": "43.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/43.jpg"
+                    },
+                    {
+                      "name": "44.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/44.jpg"
+                    },
+                    {
+                      "name": "45.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/45.jpg"
+                    },
+                    {
+                      "name": "46.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/46.jpg"
+                    },
+                    {
+                      "name": "47.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/47.jpg"
+                    },
+                    {
+                      "name": "48.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/48.jpg"
+                    },
+                    {
+                      "name": "49.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/49.jpg"
+                    },
+                    {
+                      "name": "5.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/5.jpg"
+                    },
+                    {
+                      "name": "50.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/50.jpg"
+                    },
+                    {
+                      "name": "51.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/51.jpg"
+                    },
+                    {
+                      "name": "52.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/52.jpg"
+                    },
+                    {
+                      "name": "53.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/53.jpg"
+                    },
+                    {
+                      "name": "54.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/54.jpg"
+                    },
+                    {
+                      "name": "55.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/55.jpg"
+                    },
+                    {
+                      "name": "56.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/56.jpg"
+                    },
+                    {
+                      "name": "57.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/57.jpg"
+                    },
+                    {
+                      "name": "58.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/58.jpg"
+                    },
+                    {
+                      "name": "59.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/59.jpg"
+                    },
+                    {
+                      "name": "6.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/6.jpg"
+                    },
+                    {
+                      "name": "7.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/7.jpg"
+                    },
+                    {
+                      "name": "8.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/8.jpg"
+                    },
+                    {
+                      "name": "9.jpg",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/9.jpg"
+                    },
+                    {
+                      "name": "source.txt",
+                      "type": "file",
+                      "path": "src/img/demo/gallery/source.txt"
+                    },
+                    {
+                      "name": "thumb",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/1.jpg"
+                        },
+                        {
+                          "name": "10.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/10.jpg"
+                        },
+                        {
+                          "name": "11.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/11.jpg"
+                        },
+                        {
+                          "name": "12.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/12.jpg"
+                        },
+                        {
+                          "name": "13.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/13.jpg"
+                        },
+                        {
+                          "name": "14.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/14.jpg"
+                        },
+                        {
+                          "name": "15.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/15.jpg"
+                        },
+                        {
+                          "name": "16.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/16.jpg"
+                        },
+                        {
+                          "name": "17.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/17.jpg"
+                        },
+                        {
+                          "name": "18.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/18.jpg"
+                        },
+                        {
+                          "name": "19.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/19.jpg"
+                        },
+                        {
+                          "name": "2.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/2.jpg"
+                        },
+                        {
+                          "name": "20.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/20.jpg"
+                        },
+                        {
+                          "name": "21.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/21.jpg"
+                        },
+                        {
+                          "name": "22.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/22.jpg"
+                        },
+                        {
+                          "name": "23.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/23.jpg"
+                        },
+                        {
+                          "name": "24.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/24.jpg"
+                        },
+                        {
+                          "name": "25.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/25.jpg"
+                        },
+                        {
+                          "name": "26.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/26.jpg"
+                        },
+                        {
+                          "name": "27.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/27.jpg"
+                        },
+                        {
+                          "name": "28.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/28.jpg"
+                        },
+                        {
+                          "name": "29.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/29.jpg"
+                        },
+                        {
+                          "name": "3.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/3.jpg"
+                        },
+                        {
+                          "name": "30.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/30.jpg"
+                        },
+                        {
+                          "name": "31.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/31.jpg"
+                        },
+                        {
+                          "name": "32.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/32.jpg"
+                        },
+                        {
+                          "name": "33.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/33.jpg"
+                        },
+                        {
+                          "name": "34.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/34.jpg"
+                        },
+                        {
+                          "name": "35.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/35.jpg"
+                        },
+                        {
+                          "name": "36.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/36.jpg"
+                        },
+                        {
+                          "name": "37.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/37.jpg"
+                        },
+                        {
+                          "name": "38.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/38.jpg"
+                        },
+                        {
+                          "name": "39.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/39.jpg"
+                        },
+                        {
+                          "name": "4.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/4.jpg"
+                        },
+                        {
+                          "name": "40.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/40.jpg"
+                        },
+                        {
+                          "name": "41.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/41.jpg"
+                        },
+                        {
+                          "name": "42.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/42.jpg"
+                        },
+                        {
+                          "name": "43.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/43.jpg"
+                        },
+                        {
+                          "name": "44.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/44.jpg"
+                        },
+                        {
+                          "name": "45.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/45.jpg"
+                        },
+                        {
+                          "name": "46.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/46.jpg"
+                        },
+                        {
+                          "name": "47.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/47.jpg"
+                        },
+                        {
+                          "name": "48.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/48.jpg"
+                        },
+                        {
+                          "name": "49.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/49.jpg"
+                        },
+                        {
+                          "name": "5.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/5.jpg"
+                        },
+                        {
+                          "name": "50.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/50.jpg"
+                        },
+                        {
+                          "name": "51.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/51.jpg"
+                        },
+                        {
+                          "name": "52.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/52.jpg"
+                        },
+                        {
+                          "name": "53.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/53.jpg"
+                        },
+                        {
+                          "name": "54.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/54.jpg"
+                        },
+                        {
+                          "name": "55.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/55.jpg"
+                        },
+                        {
+                          "name": "56.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/56.jpg"
+                        },
+                        {
+                          "name": "57.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/57.jpg"
+                        },
+                        {
+                          "name": "58.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/58.jpg"
+                        },
+                        {
+                          "name": "59.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/59.jpg"
+                        },
+                        {
+                          "name": "6.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/6.jpg"
+                        },
+                        {
+                          "name": "7.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/7.jpg"
+                        },
+                        {
+                          "name": "8.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/8.jpg"
+                        },
+                        {
+                          "name": "9.jpg",
+                          "type": "file",
+                          "path": "src/img/demo/gallery/thumb/9.jpg"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "pages",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "email-order.webp",
+                      "type": "file",
+                      "path": "src/img/demo/pages/email-order.webp"
+                    },
+                    {
+                      "name": "forgetpassword.webp",
+                      "type": "file",
+                      "path": "src/img/demo/pages/forgetpassword.webp"
+                    },
+                    {
+                      "name": "login.webp",
+                      "type": "file",
+                      "path": "src/img/demo/pages/login.webp"
+                    },
+                    {
+                      "name": "new-device.webp",
+                      "type": "file",
+                      "path": "src/img/demo/pages/new-device.webp"
+                    },
+                    {
+                      "name": "password-request.webp",
+                      "type": "file",
+                      "path": "src/img/demo/pages/password-request.webp"
+                    },
+                    {
+                      "name": "password-reset.webp",
+                      "type": "file",
+                      "path": "src/img/demo/pages/password-reset.webp"
+                    },
+                    {
+                      "name": "register.webp",
+                      "type": "file",
+                      "path": "src/img/demo/pages/register.webp"
+                    },
+                    {
+                      "name": "side-panel-demo.gif",
+                      "type": "file",
+                      "path": "src/img/demo/pages/side-panel-demo.gif"
+                    },
+                    {
+                      "name": "verify-email.webp",
+                      "type": "file",
+                      "path": "src/img/demo/pages/verify-email.webp"
+                    }
+                  ]
+                },
+                {
+                  "name": "peace-full.jpg",
+                  "type": "file",
+                  "path": "src/img/demo/peace-full.jpg"
+                },
+                {
+                  "name": "position-absolute.gif",
+                  "type": "file",
+                  "path": "src/img/demo/position-absolute.gif"
+                },
+                {
+                  "name": "position-fixed.gif",
+                  "type": "file",
+                  "path": "src/img/demo/position-fixed.gif"
+                },
+                {
+                  "name": "position-sticky.gif",
+                  "type": "file",
+                  "path": "src/img/demo/position-sticky.gif"
+                },
+                {
+                  "name": "relax-full.jpg",
+                  "type": "file",
+                  "path": "src/img/demo/relax-full.jpg"
+                },
+                {
+                  "name": "s-1.png",
+                  "type": "file",
+                  "path": "src/img/demo/s-1.png"
+                },
+                {
+                  "name": "sea-full.jpg",
+                  "type": "file",
+                  "path": "src/img/demo/sea-full.jpg"
+                }
+              ]
+            },
+            {
+              "name": "logo-dark.svg",
+              "type": "file",
+              "path": "src/img/logo-dark.svg"
+            },
+            {
+              "name": "logo-light.svg",
+              "type": "file",
+              "path": "src/img/logo-light.svg"
+            },
+            {
+              "name": "logo.png",
+              "type": "file",
+              "path": "src/img/logo.png"
+            },
+            {
+              "name": "logo.svg",
+              "type": "file",
+              "path": "src/img/logo.svg"
+            },
+            {
+              "name": "patterns",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "pattern-1.svg",
+                  "type": "file",
+                  "path": "src/img/patterns/pattern-1.svg"
+                },
+                {
+                  "name": "pattern-2.svg",
+                  "type": "file",
+                  "path": "src/img/patterns/pattern-2.svg"
+                },
+                {
+                  "name": "pattern-3.svg",
+                  "type": "file",
+                  "path": "src/img/patterns/pattern-3.svg"
+                },
+                {
+                  "name": "pattern-4.svg",
+                  "type": "file",
+                  "path": "src/img/patterns/pattern-4.svg"
+                }
+              ]
+            },
+            {
+              "name": "thumbs",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "avatar-admin-xl.jpeg",
+                  "type": "file",
+                  "path": "src/img/thumbs/avatar-admin-xl.jpeg"
+                },
+                {
+                  "name": "pic-1.png",
+                  "type": "file",
+                  "path": "src/img/thumbs/pic-1.png"
+                },
+                {
+                  "name": "pic-10.png",
+                  "type": "file",
+                  "path": "src/img/thumbs/pic-10.png"
+                },
+                {
+                  "name": "pic-11.png",
+                  "type": "file",
+                  "path": "src/img/thumbs/pic-11.png"
+                },
+                {
+                  "name": "pic-12.png",
+                  "type": "file",
+                  "path": "src/img/thumbs/pic-12.png"
+                },
+                {
+                  "name": "pic-3.png",
+                  "type": "file",
+                  "path": "src/img/thumbs/pic-3.png"
+                },
+                {
+                  "name": "pic-4.png",
+                  "type": "file",
+                  "path": "src/img/thumbs/pic-4.png"
+                },
+                {
+                  "name": "pic-5.png",
+                  "type": "file",
+                  "path": "src/img/thumbs/pic-5.png"
+                },
+                {
+                  "name": "pic-6.png",
+                  "type": "file",
+                  "path": "src/img/thumbs/pic-6.png"
+                },
+                {
+                  "name": "pic-7.png",
+                  "type": "file",
+                  "path": "src/img/thumbs/pic-7.png"
+                },
+                {
+                  "name": "pic-8.png",
+                  "type": "file",
+                  "path": "src/img/thumbs/pic-8.png"
+                },
+                {
+                  "name": "pic-9.png",
+                  "type": "file",
+                  "path": "src/img/thumbs/pic-9.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "json",
+          "type": "directory",
+          "children": [
+            {
+              "name": "directory-tree.json",
+              "type": "file",
+              "path": "src/json/directory-tree.json"
+            },
+            {
+              "name": "fa-brands.json",
+              "type": "file",
+              "path": "src/json/fa-brands.json"
+            },
+            {
+              "name": "fa-duotone.json",
+              "type": "file",
+              "path": "src/json/fa-duotone.json"
+            },
+            {
+              "name": "fa-icons.json",
+              "type": "file",
+              "path": "src/json/fa-icons.json"
+            },
+            {
+              "name": "fa-mappings.json",
+              "type": "file",
+              "path": "src/json/fa-mappings.json"
+            },
+            {
+              "name": "MOCK_DATA.csv",
+              "type": "file",
+              "path": "src/json/MOCK_DATA.csv"
+            },
+            {
+              "name": "MOCK_DATA.json",
+              "type": "file",
+              "path": "src/json/MOCK_DATA.json"
+            },
+            {
+              "name": "MOCK_DATA_HOSPITAL.json",
+              "type": "file",
+              "path": "src/json/MOCK_DATA_HOSPITAL.json"
+            },
+            {
+              "name": "MOCK_MAIL.json",
+              "type": "file",
+              "path": "src/json/MOCK_MAIL.json"
+            },
+            {
+              "name": "ng-bg-colors.json",
+              "type": "file",
+              "path": "src/json/ng-bg-colors.json"
+            },
+            {
+              "name": "ng-text-colors.json",
+              "type": "file",
+              "path": "src/json/ng-text-colors.json"
+            },
+            {
+              "name": "sa-base.json",
+              "type": "file",
+              "path": "src/json/sa-base.json"
+            },
+            {
+              "name": "sa-icons.json",
+              "type": "file",
+              "path": "src/json/sa-icons.json"
+            },
+            {
+              "name": "sa-mappings.json",
+              "type": "file",
+              "path": "src/json/sa-mappings.json"
+            },
+            {
+              "name": "sa-svg-icons.json",
+              "type": "file",
+              "path": "src/json/sa-svg-icons.json"
+            },
+            {
+              "name": "sa-svg-mappings.json",
+              "type": "file",
+              "path": "src/json/sa-svg-mappings.json"
+            },
+            {
+              "name": "smarttable-data.json",
+              "type": "file",
+              "path": "src/json/smarttable-data.json"
+            }
+          ]
+        },
+        {
+          "name": "media",
+          "type": "directory",
+          "children": [
+            {
+              "name": "sound",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "alerts-voice.mp3",
+                  "type": "file",
+                  "path": "src/media/sound/alerts-voice.mp3"
+                },
+                {
+                  "name": "appintel.mp3",
+                  "type": "file",
+                  "path": "src/media/sound/appintel.mp3"
+                },
+                {
+                  "name": "error.mp3",
+                  "type": "file",
+                  "path": "src/media/sound/error.mp3"
+                },
+                {
+                  "name": "filename.mp3",
+                  "type": "file",
+                  "path": "src/media/sound/filename.mp3"
+                },
+                {
+                  "name": "sawhisp.mp3",
+                  "type": "file",
+                  "path": "src/media/sound/sawhisp.mp3"
+                },
+                {
+                  "name": "settings-voice.mp3",
+                  "type": "file",
+                  "path": "src/media/sound/settings-voice.mp3"
+                }
+              ]
+            },
+            {
+              "name": "video",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "sav5-intro.mp4",
+                  "type": "file",
+                  "path": "src/media/video/sav5-intro.mp4"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "navigation.json",
+          "type": "file",
+          "path": "src/navigation.json"
+        },
+        {
+          "name": "sass",
+          "type": "directory",
+          "children": [
+            {
+              "name": "app",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "authentication.scss",
+                  "type": "file",
+                  "path": "src/sass/app/authentication.scss"
+                },
+                {
+                  "name": "demo-docs.scss",
+                  "type": "file",
+                  "path": "src/sass/app/demo-docs.scss"
+                },
+                {
+                  "name": "landing.scss",
+                  "type": "file",
+                  "path": "src/sass/app/landing.scss"
+                },
+                {
+                  "name": "profilepage.scss",
+                  "type": "file",
+                  "path": "src/sass/app/profilepage.scss"
+                },
+                {
+                  "name": "smartapp.scss",
+                  "type": "file",
+                  "path": "src/sass/app/smartapp.scss"
+                },
+                {
+                  "name": "_accordions.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_accordions.scss"
+                },
+                {
+                  "name": "_alerts.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_alerts.scss"
+                },
+                {
+                  "name": "_app.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_app.scss"
+                },
+                {
+                  "name": "_bootstrap.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_bootstrap.scss"
+                },
+                {
+                  "name": "_breadcrumbs.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_breadcrumbs.scss"
+                },
+                {
+                  "name": "_buttons.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_buttons.scss"
+                },
+                {
+                  "name": "_cards.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_cards.scss"
+                },
+                {
+                  "name": "_components.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_components.scss"
+                },
+                {
+                  "name": "_darkmode.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_darkmode.scss"
+                },
+                {
+                  "name": "_demo.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_demo.scss"
+                },
+                {
+                  "name": "_drawer.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_drawer.scss"
+                },
+                {
+                  "name": "_dropdowns.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_dropdowns.scss"
+                },
+                {
+                  "name": "_fallback.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_fallback.scss"
+                },
+                {
+                  "name": "_forms.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_forms.scss"
+                },
+                {
+                  "name": "_icons.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_icons.scss"
+                },
+                {
+                  "name": "_keyframes.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_keyframes.scss"
+                },
+                {
+                  "name": "_layout.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_layout.scss"
+                },
+                {
+                  "name": "_logo.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_logo.scss"
+                },
+                {
+                  "name": "_misc.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_misc.scss"
+                },
+                {
+                  "name": "_mixins.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_mixins.scss"
+                },
+                {
+                  "name": "_mod-color-blind.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_mod-color-blind.scss"
+                },
+                {
+                  "name": "_modals.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_modals.scss"
+                },
+                {
+                  "name": "_nav.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_nav.scss"
+                },
+                {
+                  "name": "_navdark.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_navdark.scss"
+                },
+                {
+                  "name": "_navfilter.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_navfilter.scss"
+                },
+                {
+                  "name": "_notifications.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_notifications.scss"
+                },
+                {
+                  "name": "_pagination.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_pagination.scss"
+                },
+                {
+                  "name": "_panels.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_panels.scss"
+                },
+                {
+                  "name": "_popovers.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_popovers.scss"
+                },
+                {
+                  "name": "_progressbars.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_progressbars.scss"
+                },
+                {
+                  "name": "_reset.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_reset.scss"
+                },
+                {
+                  "name": "_rightcontent.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_rightcontent.scss"
+                },
+                {
+                  "name": "_rtl.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_rtl.scss"
+                },
+                {
+                  "name": "_scrollbar.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_scrollbar.scss"
+                },
+                {
+                  "name": "_settings.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_settings.scss"
+                },
+                {
+                  "name": "_sidepanels.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_sidepanels.scss"
+                },
+                {
+                  "name": "_smartfilter.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_smartfilter.scss"
+                },
+                {
+                  "name": "_smarttables.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_smarttables.scss"
+                },
+                {
+                  "name": "_tables.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_tables.scss"
+                },
+                {
+                  "name": "_tabs.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_tabs.scss"
+                },
+                {
+                  "name": "_toasts.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_toasts.scss"
+                },
+                {
+                  "name": "_tooltips.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_tooltips.scss"
+                },
+                {
+                  "name": "_utilities.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_utilities.scss"
+                },
+                {
+                  "name": "_variables.scss",
+                  "type": "file",
+                  "path": "src/sass/app/_variables.scss"
+                }
+              ]
+            },
+            {
+              "name": "bootstrap",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "bootstrap.scss",
+                  "type": "file",
+                  "path": "src/sass/bootstrap/bootstrap.scss"
+                },
+                {
+                  "name": "_variables-dark.scss",
+                  "type": "file",
+                  "path": "src/sass/bootstrap/_variables-dark.scss"
+                },
+                {
+                  "name": "_variables.scss",
+                  "type": "file",
+                  "path": "src/sass/bootstrap/_variables.scss"
+                }
+              ]
+            },
+            {
+              "name": "demo",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "iconsdemo.scss",
+                  "type": "file",
+                  "path": "src/sass/demo/iconsdemo.scss"
+                },
+                {
+                  "name": "stackgenerator.scss",
+                  "type": "file",
+                  "path": "src/sass/demo/stackgenerator.scss"
+                },
+                {
+                  "name": "treedemo.scss",
+                  "type": "file",
+                  "path": "src/sass/demo/treedemo.scss"
+                }
+              ]
+            },
+            {
+              "name": "landing",
+              "type": "directory",
+              "children": []
+            },
+            {
+              "name": "waves",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "waves.scss",
+                  "type": "file",
+                  "path": "src/sass/waves/waves.scss"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "scripts",
+          "type": "directory",
+          "children": [
+            {
+              "name": "core",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "smartApp",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "smartApp.js",
+                      "type": "file",
+                      "path": "src/scripts/core/smartApp/smartApp.js"
+                    }
+                  ]
+                },
+                {
+                  "name": "smartNavigation",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "smartNavigation.js",
+                      "type": "file",
+                      "path": "src/scripts/core/smartNavigation/smartNavigation.js"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "dependable",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "smartFilter",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "smartFilter.js",
+                      "type": "file",
+                      "path": "src/scripts/dependable/smartFilter/smartFilter.js"
+                    }
+                  ]
+                },
+                {
+                  "name": "thirdparty",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "bootstrap.bundle.js",
+                      "type": "file",
+                      "path": "src/scripts/dependable/thirdparty/bootstrap.bundle.js"
+                    },
+                    {
+                      "name": "sortable.js",
+                      "type": "file",
+                      "path": "src/scripts/dependable/thirdparty/sortable.js"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "optional",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "smartNotes",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "smartnotes.js",
+                      "type": "file",
+                      "path": "src/scripts/optional/smartNotes/smartnotes.js"
+                    }
+                  ]
+                },
+                {
+                  "name": "smartSlimScroll",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "smartSlimscroll.js",
+                      "type": "file",
+                      "path": "src/scripts/optional/smartSlimScroll/smartSlimscroll.js"
+                    }
+                  ]
+                },
+                {
+                  "name": "smartTablePlugins",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "smarttables.plugin.rowHighlight.js",
+                      "type": "file",
+                      "path": "src/scripts/optional/smartTablePlugins/smarttables.plugin.rowHighlight.js"
+                    }
+                  ]
+                },
+                {
+                  "name": "smartTables",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "smartTables.bundle.js",
+                      "type": "file",
+                      "path": "src/scripts/optional/smartTables/smartTables.bundle.js"
+                    }
+                  ]
+                },
+                {
+                  "name": "smartVideoPlayer",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "smartVideoPlayer.js",
+                      "type": "file",
+                      "path": "src/scripts/optional/smartVideoPlayer/smartVideoPlayer.js"
+                    }
+                  ]
+                },
+                {
+                  "name": "thirdparty",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "waves.js",
+                      "type": "file",
+                      "path": "src/scripts/optional/thirdparty/waves.js"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "pagescripts",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "iconography.js",
+                  "type": "file",
+                  "path": "src/scripts/pagescripts/iconography.js"
+                },
+                {
+                  "name": "jsonpath-picker.js",
+                  "type": "file",
+                  "path": "src/scripts/pagescripts/jsonpath-picker.js"
+                },
+                {
+                  "name": "messenger.js",
+                  "type": "file",
+                  "path": "src/scripts/pagescripts/messenger.js"
+                },
+                {
+                  "name": "stackgenerator.js",
+                  "type": "file",
+                  "path": "src/scripts/pagescripts/stackgenerator.js"
+                },
+                {
+                  "name": "swipe-to-delete.js",
+                  "type": "file",
+                  "path": "src/scripts/pagescripts/swipe-to-delete.js"
+                },
+                {
+                  "name": "systemmail.js",
+                  "type": "file",
+                  "path": "src/scripts/pagescripts/systemmail.js"
+                },
+                {
+                  "name": "tablesstylegenerator.js",
+                  "type": "file",
+                  "path": "src/scripts/pagescripts/tablesstylegenerator.js"
+                },
+                {
+                  "name": "treedemo.js",
+                  "type": "file",
+                  "path": "src/scripts/pagescripts/treedemo.js"
+                },
+                {
+                  "name": "usercontact.js",
+                  "type": "file",
+                  "path": "src/scripts/pagescripts/usercontact.js"
+                },
+                {
+                  "name": "visibilitygenerator.js",
+                  "type": "file",
+                  "path": "src/scripts/pagescripts/visibilitygenerator.js"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "sprite.svg",
+          "type": "file",
+          "path": "src/sprite.svg"
+        },
+        {
+          "name": "views",
+          "type": "directory",
+          "children": [
+            {
+              "name": "pages",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "accordions.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/accordions.ejs"
+                },
+                {
+                  "name": "alerts.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/alerts.ejs"
+                },
+                {
+                  "name": "allauthpages.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/allauthpages.ejs"
+                },
+                {
+                  "name": "appintel.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/appintel.ejs"
+                },
+                {
+                  "name": "badges.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/badges.ejs"
+                },
+                {
+                  "name": "basictables.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/basictables.ejs"
+                },
+                {
+                  "name": "bootstrapbundlejs.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/bootstrapbundlejs.ejs"
+                },
+                {
+                  "name": "borders.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/borders.ejs"
+                },
+                {
+                  "name": "breadcrumbs.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/breadcrumbs.ejs"
+                },
+                {
+                  "name": "buildnotes.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/buildnotes.ejs"
+                },
+                {
+                  "name": "buttongroup.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/buttongroup.ejs"
+                },
+                {
+                  "name": "buttons.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/buttons.ejs"
+                },
+                {
+                  "name": "cards.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/cards.ejs"
+                },
+                {
+                  "name": "carousels.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/carousels.ejs"
+                },
+                {
+                  "name": "checkboxandradio.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/checkboxandradio.ejs"
+                },
+                {
+                  "name": "clearfix.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/clearfix.ejs"
+                },
+                {
+                  "name": "collapse.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/collapse.ejs"
+                },
+                {
+                  "name": "colorpalette.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/colorpalette.ejs"
+                },
+                {
+                  "name": "displayproperty.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/displayproperty.ejs"
+                },
+                {
+                  "name": "doc-blank.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/doc-blank.ejs"
+                },
+                {
+                  "name": "dropdowns.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/dropdowns.ejs"
+                },
+                {
+                  "name": "editprofile.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/editprofile.ejs"
+                },
+                {
+                  "name": "emaildesign.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/emaildesign.ejs"
+                },
+                {
+                  "name": "errorpages.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/errorpages.ejs"
+                },
+                {
+                  "name": "figmafile.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/figmafile.ejs"
+                },
+                {
+                  "name": "flavors.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/flavors.ejs"
+                },
+                {
+                  "name": "flexbox.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/flexbox.ejs"
+                },
+                {
+                  "name": "fontawesome.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/fontawesome.ejs"
+                },
+                {
+                  "name": "fonts.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/fonts.ejs"
+                },
+                {
+                  "name": "forgetpassword.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/forgetpassword.ejs"
+                },
+                {
+                  "name": "generaldocs.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/generaldocs.ejs"
+                },
+                {
+                  "name": "gettingstarted.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/gettingstarted.ejs"
+                },
+                {
+                  "name": "groups.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/groups.ejs"
+                },
+                {
+                  "name": "helpers.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/helpers.ejs"
+                },
+                {
+                  "name": "howitworks.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/howitworks.ejs"
+                },
+                {
+                  "name": "index.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/index.ejs"
+                },
+                {
+                  "name": "inputs.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/inputs.ejs"
+                },
+                {
+                  "name": "invoice.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/invoice.ejs"
+                },
+                {
+                  "name": "landing.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/landing.ejs"
+                },
+                {
+                  "name": "layoutoptions.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/layoutoptions.ejs"
+                },
+                {
+                  "name": "listfilter.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/listfilter.ejs"
+                },
+                {
+                  "name": "lockedscreen.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/lockedscreen.ejs"
+                },
+                {
+                  "name": "login.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/login.ejs"
+                },
+                {
+                  "name": "messenger.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/messenger.ejs"
+                },
+                {
+                  "name": "modal.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/modal.ejs"
+                },
+                {
+                  "name": "navbars.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/navbars.ejs"
+                },
+                {
+                  "name": "navigation.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/navigation.ejs"
+                },
+                {
+                  "name": "pagination.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/pagination.ejs"
+                },
+                {
+                  "name": "panels.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/panels.ejs"
+                },
+                {
+                  "name": "popovers.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/popovers.ejs"
+                },
+                {
+                  "name": "position.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/position.ejs"
+                },
+                {
+                  "name": "profile.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/profile.ejs"
+                },
+                {
+                  "name": "progressbars.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/progressbars.ejs"
+                },
+                {
+                  "name": "register.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/register.ejs"
+                },
+                {
+                  "name": "responsivegrid.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/responsivegrid.ejs"
+                },
+                {
+                  "name": "scrollspy.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/scrollspy.ejs"
+                },
+                {
+                  "name": "searchresults.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/searchresults.ejs"
+                },
+                {
+                  "name": "sidepanels.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/sidepanels.ejs"
+                },
+                {
+                  "name": "sizing.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/sizing.ejs"
+                },
+                {
+                  "name": "smartadminicons.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/smartadminicons.ejs"
+                },
+                {
+                  "name": "smartappjs.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/smartappjs.ejs"
+                },
+                {
+                  "name": "smartfilterjs.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/smartfilterjs.ejs"
+                },
+                {
+                  "name": "smartnavigationjs.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/smartnavigationjs.ejs"
+                },
+                {
+                  "name": "smartpanel.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/smartpanel.ejs"
+                },
+                {
+                  "name": "smartslimscrolljs.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/smartslimscrolljs.ejs"
+                },
+                {
+                  "name": "smarttablesfuzzysearch.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/smarttablesfuzzysearch.ejs"
+                },
+                {
+                  "name": "smarttableshighlightplugin.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/smarttableshighlightplugin.ejs"
+                },
+                {
+                  "name": "smarttablesimportexportdata.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/smarttablesimportexportdata.ejs"
+                },
+                {
+                  "name": "smarttablesjs.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/smarttablesjs.ejs"
+                },
+                {
+                  "name": "smarttablesjsonsource.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/smarttablesjsonsource.ejs"
+                },
+                {
+                  "name": "smarttablesminimal.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/smarttablesminimal.ejs"
+                },
+                {
+                  "name": "smarttablesresponsive.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/smarttablesresponsive.ejs"
+                },
+                {
+                  "name": "sortablejs.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/sortablejs.ejs"
+                },
+                {
+                  "name": "spacing.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/spacing.ejs"
+                },
+                {
+                  "name": "spinners.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/spinners.ejs"
+                },
+                {
+                  "name": "stackgenerator.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/stackgenerator.ejs"
+                },
+                {
+                  "name": "systemicons.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/systemicons.ejs"
+                },
+                {
+                  "name": "systemmail-read.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/systemmail-read.ejs"
+                },
+                {
+                  "name": "systemmail.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/systemmail.ejs"
+                },
+                {
+                  "name": "tablesstylegenerator.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/tablesstylegenerator.ejs"
+                },
+                {
+                  "name": "tabsandpills.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/tabsandpills.ejs"
+                },
+                {
+                  "name": "toasts.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/toasts.ejs"
+                },
+                {
+                  "name": "tooltips.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/tooltips.ejs"
+                },
+                {
+                  "name": "typography.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/typography.ejs"
+                },
+                {
+                  "name": "usercontact.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/usercontact.ejs"
+                },
+                {
+                  "name": "validation.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/validation.ejs"
+                },
+                {
+                  "name": "visibilitygenerator.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/visibilitygenerator.ejs"
+                },
+                {
+                  "name": "wavesjs.ejs",
+                  "type": "file",
+                  "path": "src/views/pages/wavesjs.ejs"
+                }
+              ]
+            },
+            {
+              "name": "partials",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "app-body.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/app-body.ejs"
+                },
+                {
+                  "name": "app-drawer.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/app-drawer.ejs"
+                },
+                {
+                  "name": "app-footer.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/app-footer.ejs"
+                },
+                {
+                  "name": "app-header.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/app-header.ejs"
+                },
+                {
+                  "name": "app-logo.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/app-logo.ejs"
+                },
+                {
+                  "name": "app-menu-filter.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/app-menu-filter.ejs"
+                },
+                {
+                  "name": "app-notifications.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/app-notifications.ejs"
+                },
+                {
+                  "name": "app-scripts.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/app-scripts.ejs"
+                },
+                {
+                  "name": "app-settings.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/app-settings.ejs"
+                },
+                {
+                  "name": "app-sidebar.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/app-sidebar.ejs"
+                },
+                {
+                  "name": "auth-base.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/auth-base.ejs"
+                },
+                {
+                  "name": "auth-head.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/auth-head.ejs"
+                },
+                {
+                  "name": "base-authentication.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/base-authentication.ejs"
+                },
+                {
+                  "name": "base.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/base.ejs"
+                },
+                {
+                  "name": "generated-navigation.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/generated-navigation.ejs"
+                },
+                {
+                  "name": "head.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/head.ejs"
+                },
+                {
+                  "name": "landing-base.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/landing-base.ejs"
+                },
+                {
+                  "name": "landing-footer.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/landing-footer.ejs"
+                },
+                {
+                  "name": "landing-head.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/landing-head.ejs"
+                },
+                {
+                  "name": "landing-header.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/landing-header.ejs"
+                },
+                {
+                  "name": "saveloadscript.ejs",
+                  "type": "file",
+                  "path": "src/views/partials/saveloadscript.ejs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "webfonts",
+          "type": "directory",
+          "children": [
+            {
+              "name": "fontawesome",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "fonts",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "fa-brands-400.eot",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-brands-400.eot"
+                    },
+                    {
+                      "name": "fa-brands-400.svg",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-brands-400.svg"
+                    },
+                    {
+                      "name": "fa-brands-400.ttf",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-brands-400.ttf"
+                    },
+                    {
+                      "name": "fa-brands-400.woff",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-brands-400.woff"
+                    },
+                    {
+                      "name": "fa-brands-400.woff2",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-brands-400.woff2"
+                    },
+                    {
+                      "name": "fa-duotone-900.eot",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-duotone-900.eot"
+                    },
+                    {
+                      "name": "fa-duotone-900.svg",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-duotone-900.svg"
+                    },
+                    {
+                      "name": "fa-duotone-900.ttf",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-duotone-900.ttf"
+                    },
+                    {
+                      "name": "fa-duotone-900.woff",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-duotone-900.woff"
+                    },
+                    {
+                      "name": "fa-duotone-900.woff2",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-duotone-900.woff2"
+                    },
+                    {
+                      "name": "fa-light-300.eot",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-light-300.eot"
+                    },
+                    {
+                      "name": "fa-light-300.svg",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-light-300.svg"
+                    },
+                    {
+                      "name": "fa-light-300.ttf",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-light-300.ttf"
+                    },
+                    {
+                      "name": "fa-light-300.woff",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-light-300.woff"
+                    },
+                    {
+                      "name": "fa-light-300.woff2",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-light-300.woff2"
+                    },
+                    {
+                      "name": "fa-regular-400.eot",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-regular-400.eot"
+                    },
+                    {
+                      "name": "fa-regular-400.svg",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-regular-400.svg"
+                    },
+                    {
+                      "name": "fa-regular-400.ttf",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-regular-400.ttf"
+                    },
+                    {
+                      "name": "fa-regular-400.woff",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-regular-400.woff"
+                    },
+                    {
+                      "name": "fa-regular-400.woff2",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-regular-400.woff2"
+                    },
+                    {
+                      "name": "fa-solid-900.eot",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-solid-900.eot"
+                    },
+                    {
+                      "name": "fa-solid-900.svg",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-solid-900.svg"
+                    },
+                    {
+                      "name": "fa-solid-900.ttf",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-solid-900.ttf"
+                    },
+                    {
+                      "name": "fa-solid-900.woff",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-solid-900.woff"
+                    },
+                    {
+                      "name": "fa-solid-900.woff2",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/fonts/fa-solid-900.woff2"
+                    }
+                  ]
+                },
+                {
+                  "name": "license.txt",
+                  "type": "file",
+                  "path": "src/webfonts/fontawesome/license.txt"
+                },
+                {
+                  "name": "scss",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "brands.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/brands.scss"
+                    },
+                    {
+                      "name": "duotone.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/duotone.scss"
+                    },
+                    {
+                      "name": "fa-brands.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/fa-brands.scss"
+                    },
+                    {
+                      "name": "fa-light.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/fa-light.scss"
+                    },
+                    {
+                      "name": "fa-regular.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/fa-regular.scss"
+                    },
+                    {
+                      "name": "fa-solid.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/fa-solid.scss"
+                    },
+                    {
+                      "name": "fontawesome.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/fontawesome.scss"
+                    },
+                    {
+                      "name": "light.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/light.scss"
+                    },
+                    {
+                      "name": "messenger.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/messenger.scss"
+                    },
+                    {
+                      "name": "regular.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/regular.scss"
+                    },
+                    {
+                      "name": "solid.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/solid.scss"
+                    },
+                    {
+                      "name": "v4-shims.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/v4-shims.scss"
+                    },
+                    {
+                      "name": "_animated.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/_animated.scss"
+                    },
+                    {
+                      "name": "_bordered-pulled.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/_bordered-pulled.scss"
+                    },
+                    {
+                      "name": "_core.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/_core.scss"
+                    },
+                    {
+                      "name": "_fixed-width.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/_fixed-width.scss"
+                    },
+                    {
+                      "name": "_icons.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/_icons.scss"
+                    },
+                    {
+                      "name": "_larger.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/_larger.scss"
+                    },
+                    {
+                      "name": "_list.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/_list.scss"
+                    },
+                    {
+                      "name": "_mixins.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/_mixins.scss"
+                    },
+                    {
+                      "name": "_reactions.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/_reactions.scss"
+                    },
+                    {
+                      "name": "_rotated-flipped.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/_rotated-flipped.scss"
+                    },
+                    {
+                      "name": "_screen-reader.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/_screen-reader.scss"
+                    },
+                    {
+                      "name": "_shims.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/_shims.scss"
+                    },
+                    {
+                      "name": "_stacked.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/_stacked.scss"
+                    },
+                    {
+                      "name": "_variables.scss",
+                      "type": "file",
+                      "path": "src/webfonts/fontawesome/scss/_variables.scss"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "smartadmin",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "fonts",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "smartadmin-icons.eot",
+                      "type": "file",
+                      "path": "src/webfonts/smartadmin/fonts/smartadmin-icons.eot"
+                    },
+                    {
+                      "name": "smartadmin-icons.svg",
+                      "type": "file",
+                      "path": "src/webfonts/smartadmin/fonts/smartadmin-icons.svg"
+                    },
+                    {
+                      "name": "smartadmin-icons.ttf",
+                      "type": "file",
+                      "path": "src/webfonts/smartadmin/fonts/smartadmin-icons.ttf"
+                    },
+                    {
+                      "name": "smartadmin-icons.woff",
+                      "type": "file",
+                      "path": "src/webfonts/smartadmin/fonts/smartadmin-icons.woff"
+                    },
+                    {
+                      "name": "smartadmin-icons.woff2",
+                      "type": "file",
+                      "path": "src/webfonts/smartadmin/fonts/smartadmin-icons.woff2"
+                    }
+                  ]
+                },
+                {
+                  "name": "license.txt",
+                  "type": "file",
+                  "path": "src/webfonts/smartadmin/license.txt"
+                },
+                {
+                  "name": "scss",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "sa-icons.scss",
+                      "type": "file",
+                      "path": "src/webfonts/smartadmin/scss/sa-icons.scss"
+                    },
+                    {
+                      "name": "_core.scss",
+                      "type": "file",
+                      "path": "src/webfonts/smartadmin/scss/_core.scss"
+                    },
+                    {
+                      "name": "_variables.scss",
+                      "type": "file",
+                      "path": "src/webfonts/smartadmin/scss/_variables.scss"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

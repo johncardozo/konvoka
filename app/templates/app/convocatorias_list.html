@@ -1,0 +1,159 @@
+{% extends "main_layout.html" %}
+{% load static %}
+
+{% block title %}konvoka - convocatorias{% endblock %}
+
+{% block page_header_text %}Convocatorias{% endblock %}
+
+{% block page_subheader_text %}Las convocatorias permiten a los ciudadanos crear sus portulaciones para aplicar a un proceso específico.{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'index' %}">Inicio</a></li>
+<li class="breadcrumb-item active" aria-current="page">Convocatorias</li>
+{% endblock %}
+
+{% block main_content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card shadow-0 mb-g">
+            <div class="card-header">
+                <div class="card-title">Lista de Convocatorias</div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Convocatoria Interna</td>
+                                <td>2025-03-23</td>
+                                <td>
+                                    <span class="badge bg-success">Abierta</span>
+                                </td>
+                                <td>
+                                    <svg class="sa-icon">
+                                        <use href="{% static 'img/sprite.svg' %}#eye"></use>
+                                    </svg>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Convocatoria Externa</td>
+                                <td>2025-06-13</td>
+                                <td>
+                                    <span class="badge bg-danger">Cerrada</span>
+                                </td>
+                                <td>
+                                    <svg class="sa-icon">
+                                        <use href="{% static 'img/sprite.svg' %}#eye"></use>
+                                    </svg>                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Convocatoria Pública</td>
+                                <td>2025-08-30</td>
+                                <td>
+                                    <span class="badge bg-info">En evaluación</span>
+                                </td>
+                                <td>
+                                    <div style="display: flex; gap: 10px;">
+                                        <svg class="sa-icon">
+                                            <use href="{% static 'img/sprite.svg' %}#eye"></use>
+                                        </svg>
+                                        <svg class="sa-icon">
+                                            <use href="{% static 'img/sprite.svg' %}#edit-3"></use>
+                                        </svg>                                                                        
+
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Convocatoria Gubernamental</td>
+                                <td>2025-12-05</td>
+                                <td>
+                                    <span class="badge bg-warning">No publicada</span>
+                                </td>
+                                <td>
+                                    <svg class="sa-icon">
+                                        <use href="{% static 'img/sprite.svg' %}#edit-3"></use>
+                                    </svg>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block nav_menu %}
+<li>
+    <a href="{% url 'index' %}">
+        <svg class="sa-icon">
+            <use href="{% static 'img/sprite.svg' %}#home"></use>
+        </svg>
+        <span class="nav-link-text">Inicio</span>
+    </a>
+</li>
+
+<li class="nav-title"><span>Convocatorias</span></li>
+<li class="active">
+    <a href="{% url 'convocatorias_list' %}">
+        <svg class="sa-icon">
+            <use href="{% static 'img/sprite.svg' %}#message-square"></use>
+        </svg>
+        <span class="nav-link-text">Convocatorias</span>
+    </a>
+</li>
+<li class="nav-title"><span>Actores</span></li>
+<li>
+    <a href="appintel.html">
+        <svg class="sa-icon">
+            <use href="{% static 'img/sprite.svg' %}#user-check"></use>
+        </svg>
+        <span class="nav-link-text">Evaluadores</span>
+    </a>
+</li>
+<li>
+    <a href="appintel.html">
+        <svg class="sa-icon">
+            <use href="{% static 'img/sprite.svg' %}#user-plus"></use>
+        </svg>
+        <span class="nav-link-text">Postulantes</span>
+    </a>
+</li>
+<li>
+    <a href="appintel.html">
+        <svg class="sa-icon">
+            <use href="{% static 'img/sprite.svg' %}#users"></use>
+        </svg>
+        <span class="nav-link-text">Administradores</span>
+    </a>
+</li>
+
+<li class="nav-title"><span>Sistema</span></li>
+<li>
+    <a href="appintel.html">
+        <svg class="sa-icon">
+            <use href="{% static 'img/sprite.svg' %}#settings"></use>
+        </svg>
+        <span class="nav-link-text">Configuración</span>
+    </a>
+</li>
+<li>
+    <a href="appintel.html">
+        <svg class="sa-icon">
+            <use href="{% static 'img/sprite.svg' %}#log-out"></use>
+        </svg>
+        <span class="nav-link-text">Salir</span>
+    </a>
+</li>
+{% endblock %}
