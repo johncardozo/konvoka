@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 176 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g transform="matrix(1,0,0,1,2.09253,2.09233)">
+        <circle cx="14.047" cy="16.517" r="4.014" style="fill:none;stroke:black;stroke-width:1px;"/>
+        <path d="M22.63,16C22.63,24.28 18.79,31 14.05,31C9.31,31 5.47,24.28 5.47,16C5.47,7.72 9.31,1 14.05,1C18.79,1 22.63,7.72 22.63,16Z" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1.5px;"/>
+        <path d="M18.41,24.41C11.63,28.57 4.17,28.34 1.76,23.91C-0.66,19.48 2.89,12.51 9.68,8.35C16.47,4.19 23.93,4.42 26.34,8.85C28.75,13.28 25.2,20.25 18.41,24.41Z" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1.5px;"/>
+        <path d="M18.41,8.35C25.2,12.51 28.75,19.48 26.34,23.91C23.93,28.34 16.47,28.57 9.68,24.41C2.89,20.25 -0.66,13.28 1.76,8.85C4.17,4.42 11.63,4.19 18.41,8.35Z" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1.5px;"/>
+        <g transform="matrix(1,0,0,1,-15.9245,-55.5788)">
+            <text x="60.354px" y="78.48px" style="font-family:'Poppins-Bold', 'Poppins';font-weight:700;font-size:20px;">Konvoka</text>
+        </g>
+    </g>
+</svg>

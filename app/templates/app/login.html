@@ -1,0 +1,29 @@
+{% extends "app/layout_auth.html" %}
+
+{% block content%}
+<div id="regular-login" class="panel p-4 p-md-5 rounded-4">
+    <h2 class="text-center mb-4">Ingresar a konvoka</h2>
+    {% if error %}
+    <p class="alert border-danger bg-transparent text-danger text-center">{{ error }}</p>
+    {% endif %}
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="username" class="form-label">Usuario</label>
+            <input type="text" class="form-control form-control-lg" id="username" name="username" required="">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <div class="input-group">
+                <input type="password" class="form-control form-control-lg" id="password" name="password" required="">
+            </div>
+        </div>
+        <div class="d-grid mb-3">
+            <button type="submit" class="btn btn-primary btn-lg bg-opacity-75">Ingresar</button>
+        </div>
+        <div class="text-center mb-4">
+            <a href="#" class="text-decoration-none small">Olvidaste la contraseña?</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

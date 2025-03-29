@@ -1,4 +1,4 @@
-{% extends "main_layout.html" %}
+{% extends "app/layout_main.html" %}
 {% load static %}
 
 {% block title %}konvoka - convocatorias{% endblock %}
@@ -106,7 +106,7 @@
 
 <li class="nav-title"><span>Convocatorias</span></li>
 <li class="active">
-    <a href="{% url 'convocatorias_list' %}">
+    <a href="{% url 'convocatorias' %}">
         <svg class="sa-icon">
             <use href="{% static 'img/sprite.svg' %}#message-square"></use>
         </svg>
