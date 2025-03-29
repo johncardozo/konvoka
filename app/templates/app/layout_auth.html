@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}konvoka{% endblock %}</title>
+        <meta name="description" content="Page Description">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+        <!-- Call App Mode on ios devices -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <!-- Remove Tap Highlight on Windows Phone IE -->
+        <meta name="msapplication-tap-highlight" content="no">
+        <!-- Vendor css -->
+        <link rel="stylesheet" media="screen, print" href="{% static 'css/bootstrap.css' %}">
+        <!-- Base css -->
+        <link rel="stylesheet" media="screen, print" href="{% static 'css/smartapp.css' %}">
+        <link rel="stylesheet" media="screen, print" href="{% static 'css/sa-icons' %}.css">
+        <!-- Page specific CSS -->
+         <link href="{% static 'css/custom/login.css' %}" rel="stylesheet" >
+    </head>
+    <body>
+        <header class="app-header">
+            <!-- Collapse icon -->
+            <div class="d-flex flex-grow-1 me-auto align-items-center">
+                <!-- App logo -->
+                <div class="app-logo flex-shrink-0" data-prefix="v0.1">
+                    <!-- <img src="img/logo.svg" alt="logo"> -->
+                    <!-- please check docs on how to update this logo different dimensions -->
+                    <svg class="custom-logo">
+                        <use href="{% static 'img/app-logo.svg' %}#custom-logo"></use>
+                    </svg>
+                    <div class="logo-backdrop">
+                        <div class="blobs">
+                            <svg viewbox="0 0 1200 1200">
+                                <g class="blob blob-1">
+                                    <path />
+                                </g>
+                                <g class="blob blob-2">
+                                    <path />
+                                </g>
+                                <g class="blob blob-3">
+                                    <path />
+                                </g>
+                                <g class="blob blob-4">
+                                    <path />
+                                </g>
+                                <g class="blob blob-1 alt">
+                                    <path />
+                                </g>
+                                <g class="blob blob-2 alt">
+                                    <path />
+                                </g>
+                                <g class="blob blob-3 alt">
+                                    <path />
+                                </g>
+                                <g class="blob blob-4 alt">
+                                    <path />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile menu -->
+                <div
+                    class="mobile-menu-icon me-2 d-flex d-sm-flex d-md-flex d-lg-none"
+                    data-action="toggle-swap"
+                    data-toggleclass="app-mobile-menu-open"
+                >
+                    <svg class="sa-icon">
+                        <use href="{% static 'img/sprite.svg' %}#menu"></use>
+                    </svg>
+                </div>
+            </div>
+            <ul class="navbar-nav d-flex gap-6 mb-2 mb-lg-0" style="flex-direction: row;">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Registrar</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Theme modes -->                    
+                    <a href="javascript:void(0);" class="btn btn-system" data-action="toggle-theme">
+                        <svg class="sa-icon sa-icon-2x">
+                            <use href="{% static 'img/sprite.svg' %}#sun"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </header>
+        <main class="app-body">
+            <div class="app-content pb-6 layout-auth-content">
+                <div class="col-11 col-md-8 col-lg-6 col-xl-4">
+                    {% block content%}
+                    {% endblock %}
+                </div>
+            </div>
+        </main>
+        <!-- App JS scripts -->
+        <script src="{% static 'scripts/smartApp.js' %}"></script>
+    </body>
+</html>
+
+
+
+{% comment %} 
+
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Konvoka</title>
+        <link media="screen, print" href="{% static 'css/bootstrap.css' %}" rel="stylesheet" >
+        <link href="{% static 'css/smartapp.css' %}" rel="stylesheet">
+        <link href="{% static 'css/authentication.css' %}" rel="stylesheet">
+        <link href="{% static 'css/custom/login.css' %}" rel="stylesheet" >
+    </head>
+    <body>
+        <nav id="navbarColor03" class="navbar navbar-expand-lg position-fixed w-100 py-3 shadow-1" style="z-index: 1000;">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center fw-500" href="#">
+                    <img src="{% static 'img/logo.png' %}" class="d-inline-block align-text-top me-2" alt="logo"> konvoka </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto d-flex gap-2 mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a href="javascript:void(0);" class="btn btn-system" data-action="toggle-theme">
+                                <svg class="sa-icon sa-icon-2x">
+                                    <use href="{% static 'img/sprite.svg' %}#sun"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Registrar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="app-content position-relative overflow-hidden layout-auth-content">
+            <div class="container" style="position: relative; z-index: 1;">
+                <div class="row justify-content-center">
+                    <div class="col-11 col-md-8 col-lg-6 col-xl-4">
+                        {% block content%}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+            <div id="net"></div>
+        </section>
+        <script src="{% static 'scripts/smartApp.js' %}"></script>
+        <script src="{% static 'scripts/bootstrap.bundle.js' %}"></script>
+    </body>
+</html>  
+{% endcomment %}
